@@ -17,6 +17,9 @@ export const query = graphql`
         title
         tourCompanyName
         email
+        facebook
+        instagram
+        tiktok
         logo {
           gatsbyImage(formats: WEBP, width: 400)
         }

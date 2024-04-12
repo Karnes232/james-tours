@@ -3,13 +3,17 @@ import { Bars3Icon } from "@heroicons/react/24/outline";
 import loadable from "@loadable/component";
 const SideBarMenu = loadable(() => import("./SideBarMenu"));
 
-const HamburgerMenu = () => {
+const HamburgerMenu = ({ layoutData }) => {
   const [toggled, setToggled] = React.useState(false);
 
   return (
     <>
       <div className="flex lg:hidden">
-        <SideBarMenu toggled={toggled} setToggled={setToggled} />
+        <SideBarMenu
+          toggled={toggled}
+          setToggled={setToggled}
+          layoutData={layoutData}
+        />
         <main className="flex p-3">
           <div>
             <button

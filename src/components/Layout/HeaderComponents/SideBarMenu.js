@@ -7,9 +7,9 @@ import {
   // SubMenu,
 } from "react-pro-sidebar";
 import { Link } from "gatsby";
-// import SocialMedia from "../FooterComponent/SocialMedia";
+import SocialMedia from "../FooterComponents/SocialMedia";
 
-const SideBarMenu = ({ toggled, setToggled }) => {
+const SideBarMenu = ({ toggled, setToggled, layoutData }) => {
   return (
     <>
       <Sidebar
@@ -22,7 +22,7 @@ const SideBarMenu = ({ toggled, setToggled }) => {
         <div className="flex flex-col h-full justify-between">
           <div>
             <div className="mt-7 mb-10 flex justify-center items-center font-yellowtail tracking-wide text-2xl">
-              Punta Cana Experience
+              {layoutData.tourCompanyName}
             </div>
             <Menu className="ml-4 overflow-hidden">
               <MenuItem component={<Link to="/" className="hamburger" />}>
@@ -42,7 +42,10 @@ const SideBarMenu = ({ toggled, setToggled }) => {
             </Menu>
           </div>
           <footer className="hamburger mx-4">
-            {/* <SocialMedia classes="flex-row-reverse" /> */}
+            <SocialMedia
+              classes="flex-row-reverse text-black"
+              layoutData={layoutData}
+            />
           </footer>
         </div>
       </Sidebar>
