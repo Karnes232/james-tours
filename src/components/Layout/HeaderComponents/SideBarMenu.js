@@ -17,7 +17,6 @@ const SideBarMenu = ({ toggled, setToggled, layoutData }) => {
         onBackdropClick={() => setToggled(false)}
         toggled={toggled}
         breakPoint="all"
-        rtl
       >
         <div className="flex flex-col h-full justify-between">
           <div>
@@ -43,7 +42,7 @@ const SideBarMenu = ({ toggled, setToggled, layoutData }) => {
           </div>
           <footer className="hamburger mx-4">
             <SocialMedia
-              classes="flex-row-reverse text-black"
+              classes="text-black mx-auto border-none"
               layoutData={layoutData}
             />
           </footer>
