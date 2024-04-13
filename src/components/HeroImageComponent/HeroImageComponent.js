@@ -33,7 +33,7 @@ const HeroImageComponent = ({ image }) => {
         <BackgroundImage
           placeholder={imageSrc[0]?.imageSrc}
           src={imageSrc[2]?.imageSrc}
-          className="bg-fixed"
+          className="myCustomClass"
         >
           Hello World
         </BackgroundImage>
