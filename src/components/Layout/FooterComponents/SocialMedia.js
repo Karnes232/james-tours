@@ -3,7 +3,6 @@ import { FaFacebookF, FaInstagram, FaWhatsapp, FaTiktok } from "react-icons/fa";
 import { GrMail } from "react-icons/gr";
 
 const SocialMedia = ({ layoutData, classes }) => {
-  console.log(layoutData);
   return (
     <div className="">
       <div
