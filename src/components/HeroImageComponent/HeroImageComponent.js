@@ -24,6 +24,12 @@ const HeroImageComponent = ({ image }) => {
   return (
     <>
       <div className="w-full h-[50vh] lg:h-[80vh] xl:h-screen">
+        {/* <div
+          className={`h-full bg-center bg-no-repeat bg-cover lg:bg-fixed`}
+          style={HeroStyles}
+        >
+            
+        </div> */}
         <BackgroundImage
           placeholder={imageSrc[0]?.imageSrc}
           src={imageSrc[2]?.imageSrc}
