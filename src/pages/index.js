@@ -2,15 +2,30 @@ import * as React from "react";
 import { graphql } from "gatsby";
 import Layout from "../components/Layout/Layout";
 import HeroImageComponent from "../components/HeroImageComponent/HeroImageComponent";
+import TextComponent from "../components/TextComponent/TextComponent";
 
 const IndexPage = ({ data }) => {
-  // console.log(data.allContentfulPageLayout.edges[0].node)
+  console.log(data.allContentfulPageLayout.edges[0].node);
   return (
     <Layout layoutData={data.allContentfulLayout.nodes[0]}>
       <HeroImageComponent
         image={
           data.allContentfulPageLayout.edges[0].node.pageHeroImage.gatsbyImage
         }
+      />
+      <TextComponent
+        title={data.allContentfulPageLayout.edges[0].node.title1}
+        paragraph={
+          data.allContentfulPageLayout.edges[0].node.paragraph1.paragraph1
+        }
+        titleClassName="my-5 2xl:mb-2 2xl:mt-10 text-3xl md:text-4xl"
+        paragraphClassName="mb-4 lg:mb-0"
+      />
+      <TextComponent
+        paragraph={
+          data.allContentfulPageLayout.edges[0].node.paragraph2.paragraph2
+        }
+        paragraphClassName="mb-4 lg:mb-0"
       />
       <main className="h-screen">Yes</main>
     </Layout>
