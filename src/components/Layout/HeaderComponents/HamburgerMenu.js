@@ -27,7 +27,7 @@ const HamburgerMenu = ({ layoutData }) => {
           <div>
             <button
               aria-label="Menu"
-              className={`sb-button border border-${linkColor} rounded ${toggled ? "opacity-0" : "opacity-100"}`}
+              className={`sb-button border ${linkColor === "black" ? "border-black" : "border-white"} rounded ${toggled ? "opacity-0" : "opacity-100"}`}
               onClick={() => setToggled(!toggled)}
             >
               <Bars3Icon
