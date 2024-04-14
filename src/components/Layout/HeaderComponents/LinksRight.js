@@ -2,12 +2,13 @@ import React from "react";
 
 import { Link } from "gatsby";
 import useScrollPosition from "../../../customHooks/useScrollPosition";
+import useWindowHeight from "../../../customHooks/useWindowHeight";
 
 const LinksRight = () => {
   const scrollPosition = useScrollPosition();
-
+  const windowHeight = useWindowHeight();
   let linkColor = "text-white";
-  if (scrollPosition > window.innerHeight - 100) {
+  if (scrollPosition > windowHeight - 100) {
     linkColor = "text-black";
   }
   return (

@@ -2,15 +2,16 @@ import React from "react";
 import { Bars3Icon } from "@heroicons/react/24/outline";
 import loadable from "@loadable/component";
 import useScrollPosition from "../../../customHooks/useScrollPosition";
+import useWindowHeight from "../../../customHooks/useWindowHeight";
 const SideBarMenu = loadable(() => import("./SideBarMenu"));
 
 const HamburgerMenu = ({ layoutData }) => {
   const [toggled, setToggled] = React.useState(false);
-
+  const windowHeight = useWindowHeight();
   const scrollPosition = useScrollPosition();
 
   let linkColor = "white";
-  if (scrollPosition > window.innerHeight - 300) {
+  if (scrollPosition > windowHeight - 300) {
     linkColor = "black";
   }
 
