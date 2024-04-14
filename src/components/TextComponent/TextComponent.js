@@ -6,7 +6,6 @@ const TextComponent = ({
   titleClassName,
   paragraphClassName,
 }) => {
-  console.log(title);
   return (
     <div className="relative">
       <motion.div

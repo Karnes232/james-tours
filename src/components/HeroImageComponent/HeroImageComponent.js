@@ -21,7 +21,7 @@ const HeroImageComponent = ({ image }) => {
 
   return (
     <>
-      <div className="w-full h-[50vh] lg:h-[80vh] xl:h-screen">
+      <div className="w-full h-[80vh] lg:h-[100vh] xl:h-screen">
         {/* <div
           className={`h-full bg-center bg-no-repeat bg-cover lg:bg-fixed`}
           style={HeroStyles}
@@ -30,7 +30,7 @@ const HeroImageComponent = ({ image }) => {
         </div> */}
         <BackgroundImage
           placeholder={imageSrc[0]?.imageSrc}
-          src={imageSrc[2]?.imageSrc}
+          src={imageSrc[3]?.imageSrc}
           className="myCustomClass"
         >
           Hello World
