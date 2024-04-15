@@ -31,7 +31,7 @@ const HeroImageComponent = ({ image, effectImage }) => {
         <BackgroundImage
           placeholder={imageSrc[0]?.imageSrc}
           src={imageSrc[3]?.imageSrc}
-          className="myCustomClass"
+          className="myCustomClass relative"
         >
           <GatsbyImage
             image={imageEffect}
