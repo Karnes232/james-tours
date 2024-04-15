@@ -5,6 +5,7 @@ import HeroImageComponent from "../components/HeroImageComponent/HeroImageCompon
 import TextComponent from "../components/TextComponent/TextComponent";
 
 const IndexPage = ({ data }) => {
+  console.log(data.allContentfulSwiperPhotoCarousel.edges[0].node.photoList)
   return (
     <Layout layoutData={data.allContentfulLayout.nodes[0]}>
       <HeroImageComponent
@@ -27,7 +28,7 @@ const IndexPage = ({ data }) => {
         }
         paragraphClassName="mb-4 lg:mb-0"
       />
-      <main className="h-screen">Yes</main>
+   
     </Layout>
   );
 };
@@ -55,11 +56,21 @@ export const query = graphql`
         }
       }
     }
+    allContentfulSwiperPhotoCarousel(filter: {pageName: {eq: "Index"}}) {
+    edges {
+      node {
+        photoList {
+          gatsbyImage(formats: WEBP, width: 1920)
+          title
+        }
+      }
+    }
+  }
     allContentfulPageLayout(filter: { pageName: { eq: "Index" } }) {
       edges {
         node {
           pageHeroImage {
-            gatsbyImage(formats: WEBP, width: 1500)
+            gatsbyImage(formats: WEBP, width: 1920)
           }
           title1
           paragraph1 {

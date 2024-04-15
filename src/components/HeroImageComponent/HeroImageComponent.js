@@ -1,6 +1,5 @@
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import React from "react";
-import useWindowWidth from "../../customHooks/useWindowWidth";
 import BackgroundImage from "react-background-image";
 const HeroImageComponent = ({ image, effectImage }) => {
   let heroImage = image?.images?.fallback?.srcSet.split(",");
