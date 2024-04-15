@@ -36,7 +36,7 @@ const HeroImageComponent = ({ image, effectImage }) => {
           <GatsbyImage
             image={imageEffect}
             alt=""
-            className="z-50 absolute -bottom-[1px] w-screen"
+            className="z-50 !absolute -bottom-[1px] w-screen"
           />
         </BackgroundImage>
       </div>
