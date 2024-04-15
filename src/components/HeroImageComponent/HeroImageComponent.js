@@ -21,7 +21,7 @@ const HeroImageComponent = ({ image, effectImage }) => {
   const imageEffect = getImage(effectImage);
   return (
     <>
-      <div className="w-full h-[80vh] lg:h-[100vh] xl:h-screen">
+      <div className="w-full h-[80vh] lg:h-[100vh] xl:h-screen relative">
         {/* <div
           className={`h-full bg-center bg-no-repeat bg-cover lg:bg-fixed`}
           style={HeroStyles}
@@ -31,7 +31,7 @@ const HeroImageComponent = ({ image, effectImage }) => {
         <BackgroundImage
           placeholder={imageSrc[0]?.imageSrc}
           src={imageSrc[3]?.imageSrc}
-          className="myCustomClass relative"
+          className="myCustomClass"
         >
           <GatsbyImage
             image={imageEffect}
