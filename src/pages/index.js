@@ -5,13 +5,13 @@ import HeroImageComponent from "../components/HeroImageComponent/HeroImageCompon
 import TextComponent from "../components/TextComponent/TextComponent";
 
 const IndexPage = ({ data }) => {
-  console.log(data.allContentfulPageLayout.edges[0].node);
   return (
     <Layout layoutData={data.allContentfulLayout.nodes[0]}>
       <HeroImageComponent
         image={
           data.allContentfulPageLayout.edges[0].node.pageHeroImage.gatsbyImage
         }
+        effectImage={data.allContentfulAsset.edges[0].node.gatsbyImage}
       />
       <TextComponent
         title={data.allContentfulPageLayout.edges[0].node.title1}
@@ -44,6 +44,14 @@ export const query = graphql`
         tiktok
         logo {
           gatsbyImage(formats: WEBP, width: 400)
+        }
+      }
+    }
+    allContentfulAsset(filter: { filename: { eq: "effect-shape.png" } }) {
+      edges {
+        node {
+          gatsbyImage(formats: WEBP, width: 1500)
+          filename
         }
       }
     }

@@ -2,7 +2,7 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import React from "react";
 import useWindowWidth from "../../customHooks/useWindowWidth";
 import BackgroundImage from "react-background-image";
-const HeroImageComponent = ({ image }) => {
+const HeroImageComponent = ({ image, effectImage }) => {
   let heroImage = image?.images?.fallback?.srcSet.split(",");
   const imageSrc = [];
   //   const windowWidth = useWindowWidth();
@@ -19,6 +19,7 @@ const HeroImageComponent = ({ image }) => {
   //       ")",
   //   };
 
+  const imageEffect = getImage(effectImage);
   return (
     <>
       <div className="w-full h-[80vh] lg:h-[100vh] xl:h-screen">
@@ -33,7 +34,11 @@ const HeroImageComponent = ({ image }) => {
           src={imageSrc[3]?.imageSrc}
           className="myCustomClass"
         >
-          Hello World
+          <GatsbyImage
+            image={imageEffect}
+            alt=""
+            className="z-50 absolute -bottom-[1px] w-screen"
+          />
         </BackgroundImage>
       </div>
     </>
