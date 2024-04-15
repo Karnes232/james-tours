@@ -3,9 +3,9 @@ import { graphql } from "gatsby";
 import Layout from "../components/Layout/Layout";
 import HeroImageComponent from "../components/HeroImageComponent/HeroImageComponent";
 import TextComponent from "../components/TextComponent/TextComponent";
+import SwiperCarousel from "../components/SwiperCarouselComponent/SwiperCarousel";
 
 const IndexPage = ({ data }) => {
-  console.log(data.allContentfulSwiperPhotoCarousel.edges[0].node.photoList);
   return (
     <Layout layoutData={data.allContentfulLayout.nodes[0]}>
       <HeroImageComponent
@@ -27,6 +27,12 @@ const IndexPage = ({ data }) => {
           data.allContentfulPageLayout.edges[0].node.paragraph2.paragraph2
         }
         paragraphClassName="mb-4 lg:mb-0"
+      />
+      <SwiperCarousel
+        photoList={
+          data.allContentfulSwiperPhotoCarousel.edges[0].node.photoList
+        }
+        effectImage={data.allContentfulAsset.edges[0].node.gatsbyImage}
       />
     </Layout>
   );
