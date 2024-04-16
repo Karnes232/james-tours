@@ -11,23 +11,10 @@ const HeroImageComponent = ({ image, effectImage }) => {
     imageSrc.push(imageObject);
   });
 
-  //   const HeroStyles = {
-  //     backgroundImage:
-  //       "linear-gradient(45deg, rgba(245, 246, 252, 0.52), rgba(0, 0, 0, 0.53)), url(" +
-  //       imageSrc[2]?.imageSrc +
-  //       ")",
-  //   };
-
   const imageEffect = getImage(effectImage);
   return (
     <>
-      <div className="w-full h-[80vh] lg:h-[100vh] xl:h-screen relative">
-        {/* <div
-          className={`h-full bg-center bg-no-repeat bg-cover lg:bg-fixed`}
-          style={HeroStyles}
-        >
-            
-        </div> */}
+      <div className="w-full h-[40rem] lg:h-[50rem] xl:h-[60rem] relative">
         <BackgroundImage
           placeholder={imageSrc[0]?.imageSrc}
           src={imageSrc[3]?.imageSrc}
