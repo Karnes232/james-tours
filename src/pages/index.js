@@ -5,6 +5,7 @@ import HeroImageComponent from "../components/HeroImageComponent/HeroImageCompon
 import TextComponent from "../components/TextComponent/TextComponent";
 import SwiperCarousel from "../components/SwiperCarouselComponent/SwiperCarousel";
 import CatagoryCardComponent from "../components/CatagoryCardComponent/CatagoryCardComponent";
+import FaqsComponent from "../components/FaqsComponent/FaqsComponent";
 
 const IndexPage = ({ data }) => {
   return (
@@ -46,6 +47,7 @@ const IndexPage = ({ data }) => {
         }
         effectImage={data.allContentfulAsset.edges[0].node.gatsbyImage}
       />
+      <FaqsComponent faqs={data.allContentfulFaqsComponent.edges} />
     </Layout>
   );
 };
@@ -108,6 +110,16 @@ export const query = graphql`
           categoryImage {
             gatsbyImage(formats: WEBP, width: 400)
             title
+          }
+        }
+      }
+    }
+    allContentfulFaqsComponent {
+      edges {
+        node {
+          question
+          answer {
+            answer
           }
         }
       }

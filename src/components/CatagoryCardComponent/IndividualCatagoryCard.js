@@ -14,7 +14,7 @@ const IndividualCatagoryCard = ({ category, link, index }) => {
           viewport={{ once: true }}
           transition={{
             duration: 1.5,
-            delay: index/2 + .3,
+            delay: index / 2 + 0.3,
           }}
           className="flex flex-col justify-center items-center max-w-[11rem] my-5 mx-2 rounded-lg  drop-shadow-[0_35px_35px_rgba(0,0,0,0.25)] "
         >
