@@ -2,13 +2,12 @@ import { Link } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import React from "react";
 import { motion } from "framer-motion";
-const IndividualCatagoryCard = ({ category }) => {
-  console.log(category.node.url);
+const IndividualCatagoryCard = ({ category, link }) => {
   const image = getImage(category.node.categoryImage.gatsbyImage);
   return (
     <>
       {/* <Link to={featured ? `tours/${url}` : `${url}`}> */}
-      <Link to={`/${category.node.url}`}>
+      <Link to={`${link}#${category.node.url}`}>
         <motion.div
           initial={{ opacity: 0, scale: 0.5 }}
           whileInView={{ opacity: 1, scale: 1 }}

@@ -18,7 +18,7 @@ const IndexPage = ({ data }) => {
       <div className="xl:my-20">
         <TextComponent
           title={data.allContentfulPageLayout.edges[0].node.title1}
-          titleClassName="mt-5 2xl:mt-10 text-3xl md:text-4xl lg:text-6xl font-zeyada text-[#F8C05B]"
+          titleClassName="mt-5 2xl:mt-10 text-3xl md:text-4xl lg:text-6xl font-zeyada text-primary-color"
         />
         <TextComponent
           title={data.allContentfulPageLayout.edges[0].node.title2}
@@ -37,6 +37,7 @@ const IndexPage = ({ data }) => {
       </div>
       <CatagoryCardComponent
         categories={data.allContentfulTourCategoryList.edges}
+        link="/tours"
       />
       <SwiperCarousel
         photoList={
