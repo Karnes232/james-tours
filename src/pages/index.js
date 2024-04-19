@@ -4,6 +4,7 @@ import Layout from "../components/Layout/Layout";
 import HeroImageComponent from "../components/HeroImageComponent/HeroImageComponent";
 import TextComponent from "../components/TextComponent/TextComponent";
 import SwiperCarousel from "../components/SwiperCarouselComponent/SwiperCarousel";
+import CatagoryCardComponent from "../components/CatagoryCardComponent/CatagoryCardComponent";
 
 const IndexPage = ({ data }) => {
   return (
@@ -34,6 +35,9 @@ const IndexPage = ({ data }) => {
           paragraphClassName="mb-4 lg:mb-0 xl:text-xl"
         />
       </div>
+      <CatagoryCardComponent
+        categories={data.allContentfulTourCategoryList.edges}
+      />
       <SwiperCarousel
         photoList={
           data.allContentfulSwiperPhotoCarousel.edges[0].node.photoList
@@ -90,6 +94,18 @@ export const query = graphql`
           }
           paragraph2 {
             paragraph2
+          }
+        }
+      }
+    }
+    allContentfulTourCategoryList {
+      edges {
+        node {
+          category
+          url
+          categoryImage {
+            gatsbyImage(formats: WEBP, width: 400)
+            title
           }
         }
       }
