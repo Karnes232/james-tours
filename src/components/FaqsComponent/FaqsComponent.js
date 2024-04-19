@@ -12,7 +12,6 @@ const FaqsComponent = ({ faqs }) => {
           titleClassName="mt-5 mb-2 text-center font-zeyada text-3xl md:text-4xl lg:text-7xl text-primary-color"
         />
         {faqs.map((faq, index) => {
-          console.log(faq.node);
           return (
             <Question
               key={index}
