@@ -2,7 +2,7 @@ import { Link } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import React from "react";
 import { motion } from "framer-motion";
-const IndividualCatagoryCard = ({ category, link }) => {
+const IndividualCatagoryCard = ({ category, link, index }) => {
   const image = getImage(category.node.categoryImage.gatsbyImage);
   return (
     <>
@@ -14,7 +14,7 @@ const IndividualCatagoryCard = ({ category, link }) => {
           viewport={{ once: true }}
           transition={{
             duration: 1.5,
-            delay: 0.3,
+            delay: index/2 + .3,
           }}
           className="flex flex-col justify-center items-center max-w-[11rem] my-5 mx-2 rounded-lg  drop-shadow-[0_35px_35px_rgba(0,0,0,0.25)] "
         >

@@ -12,6 +12,7 @@ const CatagoryCardComponent = ({ categories, link }) => {
               category={category}
               link={link}
               key={index}
+              index={index}
               featured
             />
           ))}
