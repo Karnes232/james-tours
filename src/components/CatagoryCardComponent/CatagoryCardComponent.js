@@ -3,7 +3,6 @@ import IndividualCatagoryCard from "./IndividualCatagoryCard";
 import CtaButton from "../CtaButton/CtaButton";
 
 const CatagoryCardComponent = ({ categories, link }) => {
-  console.log(link);
   return (
     <>
       <div className="py-10" id="catagories">

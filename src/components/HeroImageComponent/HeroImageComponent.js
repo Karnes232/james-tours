@@ -1,7 +1,7 @@
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import React from "react";
 import BackgroundImage from "react-background-image";
-const HeroImageComponent = ({ image, effectImage }) => {
+const HeroImageComponent = ({ image, effectImage, title }) => {
   let heroImage = image?.images?.fallback?.srcSet.split(",");
   const imageSrc = [];
   //   const windowWidth = useWindowWidth();
@@ -12,6 +12,8 @@ const HeroImageComponent = ({ image, effectImage }) => {
   });
 
   const imageEffect = getImage(effectImage);
+
+  console.log(title);
   return (
     <>
       <div className="w-full h-[40rem] lg:h-[50rem] xl:h-[60rem] relative">
@@ -20,6 +22,11 @@ const HeroImageComponent = ({ image, effectImage }) => {
           src={imageSrc[3]?.imageSrc}
           className="myCustomClass"
         >
+          <div className="flex justify-center text-center items-center h-full w-screen !z-50 relative -top-32">
+            <div className="font-zeyada text-6xl md:text-7xl lg:text-8xl md:w-96 lg:w-[26rem] text-primary-color">
+              {title}
+            </div>
+          </div>
           <GatsbyImage
             image={imageEffect}
             alt=""

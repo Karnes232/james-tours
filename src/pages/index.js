@@ -14,6 +14,7 @@ const IndexPage = ({ data }) => {
           data.allContentfulPageLayout.edges[0].node.pageHeroImage.gatsbyImage
         }
         effectImage={data.allContentfulAsset.edges[0].node.gatsbyImage}
+        title={data.allContentfulLayout.nodes[0].tourCompanyName}
       />
       <div className="xl:my-20">
         <TextComponent
