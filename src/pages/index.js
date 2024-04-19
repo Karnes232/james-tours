@@ -17,10 +17,14 @@ const IndexPage = ({ data }) => {
       <div className="xl:my-20">
         <TextComponent
           title={data.allContentfulPageLayout.edges[0].node.title1}
+          titleClassName="mt-5 2xl:mt-10 text-3xl md:text-4xl lg:text-6xl font-zeyada text-[#F8C05B]"
+        />
+        <TextComponent
+          title={data.allContentfulPageLayout.edges[0].node.title2}
           paragraph={
             data.allContentfulPageLayout.edges[0].node.paragraph1.paragraph1
           }
-          titleClassName="my-5 2xl:mb-10 2xl:mt-10 text-3xl md:text-4xl lg:text-6xl"
+          titleClassName="mb-5 2xl:mb-10 text-3xl md:text-4xl lg:text-6xl font-lato"
           paragraphClassName="mb-4 lg:mb-0 xl:text-xl"
         />
         <TextComponent
@@ -80,6 +84,7 @@ export const query = graphql`
             gatsbyImage(formats: WEBP, width: 1920)
           }
           title1
+          title2
           paragraph1 {
             paragraph1
           }

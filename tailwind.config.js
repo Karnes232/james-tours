@@ -12,7 +12,7 @@ module.exports = {
         "primary-bg-color": "var(--primary-bg-color)",
       },
       fontFamily: {
-        yellowtail: ["Yellowtail"],
+        zeyada: ["Zeyada"],
         montserrat: ["Montserrat"],
         lato: ["Lato"],
         garamond: ["Garamond"],

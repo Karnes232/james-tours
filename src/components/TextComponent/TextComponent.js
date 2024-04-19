@@ -16,11 +16,9 @@ const TextComponent = ({
           duration: 3,
           delay: 0.3,
         }}
-        className="flex flex-col items-center justify-center text-center max-w-5xl mx-5 lg:p-2 xl:mx-auto"
+        className="flex flex-col items-center justify-center max-w-5xl mx-5 lg:p-2 xl:mx-auto"
       >
-        <h1
-          className={`font-lato tracking-wider font-semibold  ${titleClassName}`}
-        >
+        <h1 className={`tracking-wider font-semibold w-full ${titleClassName}`}>
           {title}
         </h1>
         <p
