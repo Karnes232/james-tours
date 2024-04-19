@@ -9,7 +9,7 @@ const FaqsComponent = ({ faqs }) => {
       <div className="mb-5 h-screen">
         <TextComponent
           title="Punta Cana FAQS"
-          titleClassName="mt-5 mb-2 text-center font-lato text-3xl md:text-4xl lg:text-6xl"
+          titleClassName="mt-5 mb-2 text-center font-zeyada text-3xl md:text-4xl lg:text-7xl text-primary-color"
         />
         {faqs.map((faq, index) => {
           console.log(faq.node);
