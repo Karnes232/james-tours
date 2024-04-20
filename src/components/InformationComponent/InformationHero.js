@@ -35,18 +35,23 @@ const InformationHero = ({ backgroundImage, effectImage }) => {
               <InformationButton
                 Icon={<LiaPlaneArrivalSolid />}
                 title="Airport"
+                link='/information/airport'
               />
               <InformationButton
                 Icon={<TiWeatherPartlySunny />}
                 title="Weather"
+                link='/information/weather'
               />
               <InformationButton
                 Icon={<MdCurrencyExchange />}
                 title="Currency"
+                link='/information/currency'
               />
               <InformationButton 
               Icon={<BsHospital />}
-              title="Safety"/>
+              title="Safety"
+              link='/information/safety'
+              />
             </div>
           </div>
           <GatsbyImage
