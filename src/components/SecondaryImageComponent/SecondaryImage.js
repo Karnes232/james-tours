@@ -1,7 +1,6 @@
 import React from "react";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 const SecondaryImage = ({ image }) => {
-  console.log(image.title);
   const secondaryImage = getImage(image.gatsbyImage);
   return (
     <>

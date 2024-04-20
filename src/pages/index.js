@@ -7,6 +7,7 @@ import SwiperCarousel from "../components/SwiperCarouselComponent/SwiperCarousel
 import CatagoryCardComponent from "../components/CatagoryCardComponent/CatagoryCardComponent";
 import FaqsComponent from "../components/FaqsComponent/FaqsComponent";
 import SecondaryImage from "../components/SecondaryImageComponent/SecondaryImage";
+import InformationHero from "../components/InformationComponent/InformationHero";
 
 const IndexPage = ({ data }) => {
   return (
@@ -70,6 +71,10 @@ const IndexPage = ({ data }) => {
           />
         </div>
       </div>
+      <InformationHero
+        backgroundImage={data.allContentfulPageLayout.edges[0].node.thirdImage}
+        effectImage={data.allContentfulAsset.edges[0].node.gatsbyImage}
+      />
     </Layout>
   );
 };
@@ -92,7 +97,7 @@ export const query = graphql`
     allContentfulAsset(filter: { filename: { eq: "effect-shape.png" } }) {
       edges {
         node {
-          gatsbyImage(formats: WEBP, width: 1500)
+          gatsbyImage(formats: WEBP, placeholder: BLURRED, width: 1500)
           filename
         }
       }
@@ -111,7 +116,7 @@ export const query = graphql`
       edges {
         node {
           pageHeroImage {
-            gatsbyImage(formats: WEBP, width: 1920)
+            gatsbyImage(formats: WEBP, placeholder: BLURRED, width: 1920)
           }
           title1
           title2
@@ -127,7 +132,11 @@ export const query = graphql`
             paragraph3
           }
           secondaryImage {
-            gatsbyImage(formats: WEBP, width: 1500)
+            gatsbyImage(formats: WEBP, placeholder: BLURRED, width: 1500)
+            title
+          }
+          thirdImage {
+            gatsbyImage(formats: WEBP, placeholder: BLURRED, width: 1500)
             title
           }
         }

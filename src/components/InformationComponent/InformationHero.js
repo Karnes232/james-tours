@@ -1,10 +1,10 @@
-import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import React from "react";
 import BackgroundImage from "react-background-image";
-const HeroImageComponent = ({ image, effectImage, title }) => {
-  let heroImage = image?.images?.fallback?.srcSet.split(",");
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
+const InformationHero = ({ backgroundImage, effectImage }) => {
+  let heroImage =
+    backgroundImage?.gatsbyImage?.images?.fallback?.srcSet.split(",");
   const imageSrc = [];
-  //   const windowWidth = useWindowWidth();
   heroImage?.forEach((element) => {
     const image = element.split(" ");
     const imageObject = { imageSrc: image[0], imageWidth: image[1] };
@@ -12,20 +12,20 @@ const HeroImageComponent = ({ image, effectImage, title }) => {
   });
 
   const imageEffect = getImage(effectImage);
-
   return (
     <>
       <div className="w-full h-[40rem] lg:h-[50rem] xl:h-[60rem] relative">
         <BackgroundImage
-          placeholder={imageSrc[0]?.imageSrc}
+          placeholder={backgroundImage.gatsbyImage.placeholder.fallback}
           src={imageSrc[3]?.imageSrc}
           className="myCustomClass"
         >
-          <div className="flex justify-center text-center items-center h-full w-screen !z-50 relative -top-32">
-            <div className="font-zeyada text-6xl md:text-7xl lg:text-8xl md:w-96 lg:w-[26rem] text-primary-color">
-              {title}
-            </div>
-          </div>
+          <GatsbyImage
+            image={imageEffect}
+            alt=""
+            className="z-50 !absolute -top-[2px] rotate-180 w-screen"
+          />
+
           <GatsbyImage
             image={imageEffect}
             alt=""
@@ -37,4 +37,4 @@ const HeroImageComponent = ({ image, effectImage, title }) => {
   );
 };
 
-export default HeroImageComponent;
+export default InformationHero;
