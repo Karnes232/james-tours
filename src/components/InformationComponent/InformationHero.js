@@ -1,6 +1,11 @@
 import React from "react";
 import BackgroundImage from "react-background-image";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import InformationButton from "./InformationButton";
+import { LiaPlaneArrivalSolid } from "react-icons/lia";
+import { MdCurrencyExchange } from "react-icons/md";
+import { TiWeatherPartlySunny } from "react-icons/ti";
+import { BsHospital } from "react-icons/bs";
 const InformationHero = ({ backgroundImage, effectImage }) => {
   let heroImage =
     backgroundImage?.gatsbyImage?.images?.fallback?.srcSet.split(",");
@@ -25,7 +30,25 @@ const InformationHero = ({ backgroundImage, effectImage }) => {
             alt=""
             className="z-50 !absolute -top-[2px] rotate-180 w-screen"
           />
-
+          <div className="h-full flex items-center justify-center">
+            <div className="flex flex-wrap justify-center lg:space-x-8 items-center h-3/4">
+              <InformationButton
+                Icon={<LiaPlaneArrivalSolid />}
+                title="Airport"
+              />
+              <InformationButton
+                Icon={<TiWeatherPartlySunny />}
+                title="Weather"
+              />
+              <InformationButton
+                Icon={<MdCurrencyExchange />}
+                title="Currency"
+              />
+              <InformationButton 
+              Icon={<BsHospital />}
+              title="Safety"/>
+            </div>
+          </div>
           <GatsbyImage
             image={imageEffect}
             alt=""
