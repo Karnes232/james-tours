@@ -8,6 +8,7 @@ import CatagoryCardComponent from "../components/CatagoryCardComponent/CatagoryC
 import FaqsComponent from "../components/FaqsComponent/FaqsComponent";
 import SecondaryImage from "../components/SecondaryImageComponent/SecondaryImage";
 import InformationHero from "../components/InformationComponent/InformationHero";
+import HowItWorks from "../components/HowItWorksComponent/HowItWorks";
 
 const IndexPage = ({ data }) => {
   return (
@@ -75,6 +76,7 @@ const IndexPage = ({ data }) => {
         backgroundImage={data.allContentfulPageLayout.edges[0].node.thirdImage}
         effectImage={data.allContentfulAsset.edges[0].node.gatsbyImage}
       />
+      <HowItWorks data={data.allContentfulHowItWorks.edges[0].node} />
     </Layout>
   );
 };
@@ -160,6 +162,45 @@ export const query = graphql`
           question
           answer {
             answer
+          }
+        }
+      }
+    }
+    allContentfulHowItWorks {
+      edges {
+        node {
+          title
+          step1
+          step2
+          step3
+          step4
+          description1 {
+            description1
+          }
+          description2 {
+            description2
+          }
+          description3 {
+            description3
+          }
+          description4 {
+            description4
+          }
+          image1 {
+            gatsbyImage(formats: WEBP, width: 100, placeholder: BLURRED)
+            title
+          }
+          image2 {
+            gatsbyImage(formats: WEBP, width: 100, placeholder: BLURRED)
+            title
+          }
+          image3 {
+            gatsbyImage(formats: WEBP, width: 100, placeholder: BLURRED)
+            title
+          }
+          image4 {
+            gatsbyImage(formats: WEBP, width: 100, placeholder: BLURRED)
+            title
           }
         }
       }
