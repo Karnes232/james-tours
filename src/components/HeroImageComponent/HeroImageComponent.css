@@ -2,4 +2,7 @@
   .react-bg-img-hd {
     background-attachment: fixed;
   }
+  .react-bg-img-placeholder {
+    background-attachment: fixed;
+  }
 }
