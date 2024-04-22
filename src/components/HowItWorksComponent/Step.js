@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 const Step = ({ title, description, image }) => {
   const icon = getImage(image);
   return (
-    <div className="flex flex-col items-center my-2 md:my-4 w-96 lg::min-h-72">
+    <div className="flex flex-col items-center my-2 md:my-4 w-96 lg:min-h-72">
       <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
