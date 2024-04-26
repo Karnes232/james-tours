@@ -6,3 +6,10 @@
     background-attachment: fixed;
   }
 }
+
+.HeroImageDark .react-bg-img-hd {
+  filter: brightness(0.5);
+}
+.HeroImageDark .react-bg-img-placeholder {
+  filter: brightness(0.5);
+}

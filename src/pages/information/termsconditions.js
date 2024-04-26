@@ -16,6 +16,7 @@ const TermsConditions = ({ data }) => {
           }
           effectImage={data.allContentfulAsset.edges[0].node.gatsbyImage}
           title={data.allContentfulPageLayout.edges[0].node.title1}
+          dark
         />{" "}
         <div className="my-10 xl:my-20">
           <TextComponent
