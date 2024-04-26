@@ -5,3 +5,9 @@
 .footerSitemap {
   @apply my-0.5 cursor-pointer text-white;
 }
+
+.footerBackground .react-bg-img-hd {
+  filter: brightness(0.5);
+  background-position: top;
+  background-attachment: local;
+}

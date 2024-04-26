@@ -20,7 +20,7 @@ const Footer = ({ layoutData, effectImage }) => {
   const imageEffect = getImage(effectImage);
   return (
     <>
-      <footer className="border-b shadow-sm w-screen">
+      <footer className="lg:h-[30rem] w-screen">
         <BackgroundImage
           placeholder={imageSrc[0]?.imageSrc}
           src={imageSrc[3]?.imageSrc}
@@ -31,7 +31,7 @@ const Footer = ({ layoutData, effectImage }) => {
             alt=""
             className="z-50 !absolute -top-[1px] rotate-180 w-screen"
           />
-          <div className="mx-5 mt-5 pt-5 md:pt-14 lg:pt-20 xl:pt-36 2xl:pt-40 flex max-w-6xl flex-col justify-between xl:mx-auto !z-50 relative">
+          <div className="mx-5 mt-5 pt-5 md:pt-14 lg:pt-20 xl:pt-36 2xl:pt-40 flex max-w-6xl flex-col h-[30rem] justify-center xl:mx-auto !z-50 relative">
             <SocialMedia layoutData={layoutData} classes={"text-white"} />
             <Sitemap />
             <div className="flex flex-col justify-between md:flex-row">
