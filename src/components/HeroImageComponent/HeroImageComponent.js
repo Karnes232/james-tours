@@ -15,7 +15,7 @@ const HeroImageComponent = ({ image, effectImage, title, dark, short }) => {
   let imageHeight = "";
   let textPosition = "";
   if (short) {
-    imageHeight = "h-[20rem] lg:h-[50rem] xl:h-[60rem]";
+    imageHeight = "h-[20rem] md:h-[25rem] lg:h-[30rem] xl:h-[40rem]";
   } else {
     imageHeight = "h-[40rem] lg:h-[50rem] xl:h-[60rem]";
     textPosition = "-top-32";

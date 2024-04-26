@@ -2,6 +2,7 @@ import { graphql } from "gatsby";
 import React from "react";
 import Layout from "../../components/Layout/Layout";
 import HeroImageComponent from "../../components/HeroImageComponent/HeroImageComponent";
+import ContactForm from "../../components/ContactForm/ContactForm";
 
 const Index = ({ data }) => {
   return (
@@ -19,6 +20,7 @@ const Index = ({ data }) => {
           dark
           short
         />{" "}
+        <ContactForm formName="contact" url="/contact/thankyou/?name=" />
       </Layout>
     </>
   );
