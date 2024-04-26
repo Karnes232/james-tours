@@ -6,7 +6,7 @@ const SocialMedia = ({ layoutData, classes }) => {
   return (
     <div className="">
       <div
-        className={`mx-8 flex justify-around py-4 md:mx-auto md:max-w-md border-b border-gray-500 md:border-none ${classes}`}
+        className={`mx-8 flex justify-around py-4 md:mx-auto md:max-w-md lg:max-w-xl border-b border-white md:border-none ${classes}`}
       >
         {layoutData.facebook && (
           <a

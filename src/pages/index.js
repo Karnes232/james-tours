@@ -12,7 +12,10 @@ import HowItWorks from "../components/HowItWorksComponent/HowItWorks";
 
 const IndexPage = ({ data }) => {
   return (
-    <Layout layoutData={data.allContentfulLayout.nodes[0]}>
+    <Layout
+      layoutData={data.allContentfulLayout.nodes[0]}
+      effectImage={data.allContentfulAsset.edges[0].node.gatsbyImage}
+    >
       <HeroImageComponent
         image={
           data.allContentfulPageLayout.edges[0].node.pageHeroImage.gatsbyImage
@@ -93,6 +96,10 @@ export const query = graphql`
         tiktok
         logo {
           gatsbyImage(formats: WEBP, width: 400)
+        }
+        footerBackground {
+          gatsbyImage(formats: WEBP, width: 2000, placeholder: BLURRED)
+          title
         }
       }
     }

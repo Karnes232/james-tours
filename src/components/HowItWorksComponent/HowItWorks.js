@@ -3,7 +3,6 @@ import TextComponent from "../TextComponent/TextComponent";
 import Step from "./Step";
 
 const HowItWorks = ({ data }) => {
-  console.log(data);
   return (
     <div className="mb-10">
       <TextComponent

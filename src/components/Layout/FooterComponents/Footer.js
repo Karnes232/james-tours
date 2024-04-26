@@ -2,18 +2,43 @@ import React from "react";
 import SocialMedia from "./SocialMedia";
 import Sitemap from "./Sitemap";
 import Copyright from "./Copyright";
+import BackgroundImage from "react-background-image";
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
-const Footer = ({ layoutData }) => {
+const Footer = ({ layoutData, effectImage }) => {
+  let heroImage =
+    layoutData?.footerBackground?.gatsbyImage?.images?.fallback?.srcSet.split(
+      ",",
+    );
+  const imageSrc = [];
+  //   const windowWidth = useWindowWidth();
+  heroImage?.forEach((element) => {
+    const image = element.split(" ");
+    const imageObject = { imageSrc: image[0], imageWidth: image[1] };
+    imageSrc.push(imageObject);
+  });
+  const imageEffect = getImage(effectImage);
   return (
     <>
-      <footer className="border-b bg-gray-800 shadow-sm w-screen">
-        <div className="mx-5 mt-5 flex max-w-6xl flex-col justify-between xl:mx-auto">
-          <SocialMedia layoutData={layoutData} classes={"text-white"} />
-          <Sitemap />
-          <div className="flex flex-col justify-between md:flex-row">
-            <Copyright tourCompany={layoutData.tourCompanyName} />
-          </div>
-        </div>
+      <footer className="border-b shadow-sm w-screen">
+        <BackgroundImage
+          placeholder={imageSrc[0]?.imageSrc}
+          src={imageSrc[3]?.imageSrc}
+          className="footerBackground"
+        >
+          <GatsbyImage
+            image={imageEffect}
+            alt=""
+            className="z-50 !absolute -top-[1px] rotate-180 w-screen"
+          />
+          <div className="mx-5 mt-5 pt-5 md:pt-14 lg:pt-20 xl:pt-36 2xl:pt-40 flex max-w-6xl flex-col justify-between xl:mx-auto !z-50 relative">
+            <SocialMedia layoutData={layoutData} classes={"text-white"} />
+            <Sitemap />
+            <div className="flex flex-col justify-between md:flex-row">
+              <Copyright tourCompany={layoutData.tourCompanyName} />
+            </div>
+          </div>{" "}
+        </BackgroundImage>
       </footer>
     </>
   );

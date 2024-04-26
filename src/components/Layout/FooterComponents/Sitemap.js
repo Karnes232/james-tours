@@ -4,8 +4,8 @@ import React from "react";
 
 const Sitemap = () => {
   return (
-    <div className="border-b border-gray-500">
-      <div className="mx-8 flex flex-col justify-between pt-4 md:mx-auto md:max-w-2xl md:flex-row">
+    <div className="border-b border-white mx-8">
+      <div className="flex flex-col justify-between pt-4 md:mx-auto md:max-w-2xl md:flex-row">
         <Link to="/">
           <p className="footerSitemap">Home</p>
         </Link>
@@ -19,7 +19,7 @@ const Sitemap = () => {
           <p className="footerSitemap">Contact</p>
         </Link>
       </div>
-      <div className="mx-8 flex flex-col justify-around  md:pt-4 md:mx-auto md:max-w-2xl md:flex-row">
+      <div className="flex flex-col justify-around pb-4 md:pt-4 md:mx-auto md:max-w-2xl md:flex-row">
         <Link to="/information/cancellation">
           <p className="footerSitemap">Cancellation Policy</p>
         </Link>

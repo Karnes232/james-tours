@@ -24,6 +24,10 @@ export const query = graphql`
         logo {
           gatsbyImage(formats: WEBP, width: 400)
         }
+        footerBackground {
+          gatsbyImage(formats: WEBP, width: 2000, placeholder: BLURRED)
+          title
+        }
       }
     }
   }
