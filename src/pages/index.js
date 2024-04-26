@@ -23,6 +23,7 @@ const IndexPage = ({ data }) => {
         effectImage={data.allContentfulAsset.edges[0].node.gatsbyImage}
         title={data.allContentfulLayout.nodes[0].tourCompanyName}
         dark={false}
+        short={false}
       />
       <div className="xl:my-20">
         <TextComponent

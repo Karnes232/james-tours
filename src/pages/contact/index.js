@@ -1,6 +1,7 @@
 import { graphql } from "gatsby";
 import React from "react";
 import Layout from "../../components/Layout/Layout";
+import HeroImageComponent from "../../components/HeroImageComponent/HeroImageComponent";
 
 const Index = ({ data }) => {
   return (
@@ -9,7 +10,15 @@ const Index = ({ data }) => {
         layoutData={data.allContentfulLayout.nodes[0]}
         effectImage={data.allContentfulAsset.edges[0].node.gatsbyImage}
       >
-        <div>Contact</div>
+        <HeroImageComponent
+          image={
+            data.allContentfulPageLayout.edges[0].node.pageHeroImage.gatsbyImage
+          }
+          effectImage={data.allContentfulAsset.edges[0].node.gatsbyImage}
+          title={data.allContentfulPageLayout.edges[0].node.title1}
+          dark
+          short
+        />{" "}
       </Layout>
     </>
   );
@@ -39,6 +48,17 @@ export const query = graphql`
         node {
           gatsbyImage(formats: WEBP, placeholder: BLURRED, width: 1500)
           filename
+        }
+      }
+    }
+    allContentfulPageLayout(filter: { pageName: { eq: "Contact" } }) {
+      edges {
+        node {
+          title1
+          pageHeroImage {
+            gatsbyImage(placeholder: BLURRED, formats: WEBP, width: 3000)
+            title
+          }
         }
       }
     }
