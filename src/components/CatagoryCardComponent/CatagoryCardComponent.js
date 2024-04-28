@@ -17,7 +17,7 @@ const CatagoryCardComponent = ({ categories, link }) => {
             />
           ))}
         </div>
-        <CtaButton text="View Tours" link={link} />
+        <CtaButton text="View Tours" state={{ tourGroup: "All" }} link={link} />
       </div>
     </>
   );

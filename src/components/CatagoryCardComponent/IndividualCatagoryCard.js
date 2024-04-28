@@ -4,10 +4,11 @@ import React from "react";
 import { motion } from "framer-motion";
 const IndividualCatagoryCard = ({ category, link, index }) => {
   const image = getImage(category.node.categoryImage.gatsbyImage);
+
   return (
     <>
       {/* <Link to={featured ? `tours/${url}` : `${url}`}> */}
-      <Link to={`${link}#${category.node.url}`}>
+      <Link to={`${link}`} state={{ tourGroup: category.node.category }}>
         <motion.div
           initial={{ opacity: 0, scale: 0.5 }}
           whileInView={{ opacity: 1, scale: 1 }}

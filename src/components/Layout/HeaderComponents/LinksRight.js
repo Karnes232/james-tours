@@ -16,7 +16,7 @@ const LinksRight = () => {
       <Link to="/" className="no-underline">
         <button className={`navLinks ${linkColor}`}>Home</button>
       </Link>
-      <Link to="/tours" className="no-underline">
+      <Link to="/tours" state={{ tourGroup: "All" }} className="no-underline">
         <button className={`navLinks ${linkColor}`}>Tours</button>
       </Link>
 
