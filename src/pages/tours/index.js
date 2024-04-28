@@ -13,7 +13,6 @@ const Index = ({ location, data }) => {
     data.allContentfulTour.edges.sort(() => Math.random() - 0.5),
   );
 
-  console.log(tourList);
   return (
     <>
       <Layout
@@ -45,7 +44,7 @@ const Index = ({ location, data }) => {
           }
           effectImage={data.allContentfulAsset.edges[0].node.gatsbyImage}
         />
-        <div className="flex flex-col md:flex-row md:flex-wrap md:justify-evenly max-w-5xl xl:max-w-6xl mx-auto">
+        <div className="flex flex-col md:flex-row md:flex-wrap md:justify-evenly 2xl:space-x-10 mx-auto">
           {tourList.map((tour, index) => {
             return <TourCard tour={tour} key={index} />;
           })}
@@ -115,6 +114,7 @@ export const query = graphql`
           }
           price
           category
+          url
         }
       }
     }
