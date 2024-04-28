@@ -1,5 +1,5 @@
 import { graphql } from "gatsby";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Layout from "../../components/Layout/Layout";
 import HeroImageComponent from "../../components/HeroImageComponent/HeroImageComponent";
 import TextComponent from "../../components/TextComponent/TextComponent";
@@ -8,10 +8,35 @@ import TourCard from "../../components/TourCardComponent/TourCard";
 
 const Index = ({ location, data }) => {
   console.log(location.state);
-
+  const backendTourList = data.allContentfulTour.edges;
+  const [selectedCategory, setSelectedCategory] = useState("All");
   const [tourList, setTourList] = useState(
     data.allContentfulTour.edges.sort(() => Math.random() - 0.5),
   );
+  let categoryList = ["All"];
+  data.allContentfulTourCategoryList.edges.forEach((item) => {
+    categoryList.push(item.node.category);
+  });
+
+  const setFilter = (category) => {
+    setSelectedCategory(category);
+    const filteredTourList = backendTourList.filter((tour) => {
+      if (category === "All") {
+        return tour;
+      }
+      const categoryList = tour.node.category;
+      return categoryList.includes(category);
+    });
+    setTourList(filteredTourList.sort(() => Math.random() - 0.5));
+  };
+
+  const categorySelection = (e) => {
+    setFilter(e.target.dataset.category);
+  };
+
+  useEffect(() => {
+    setFilter(location.state.tourGroup);
+  }, []);
 
   return (
     <>
@@ -44,10 +69,32 @@ const Index = ({ location, data }) => {
           }
           effectImage={data.allContentfulAsset.edges[0].node.gatsbyImage}
         />
-        <div className="flex flex-col md:flex-row md:flex-wrap md:justify-evenly 2xl:space-x-10 mx-auto">
-          {tourList.map((tour, index) => {
-            return <TourCard tour={tour} key={index} />;
-          })}
+        <div>
+          <nav className="flex flex-row items-center overflow-x-scroll xl:overflow-x-auto whitespace-nowrap mx-5 lg:justify-center">
+            {categoryList.map((category, index) => {
+              let active = "";
+              if (category === selectedCategory) {
+                active = "font-extrabold";
+              }
+              return (
+                <button
+                  key={index}
+                  data-category={category}
+                  onClick={categorySelection}
+                  value={category}
+                  translate="no"
+                  className={`cursor-pointer no-underline flex items-center px-5 h-10 ${active} transition-all duration-300 translatedText `}
+                >
+                  {category}
+                </button>
+              );
+            })}
+          </nav>
+          <div className="flex flex-col md:flex-row md:flex-wrap md:justify-evenly 2xl:space-x-10 mx-auto">
+            {tourList.map((tour, index) => {
+              return <TourCard tour={tour} key={index} />;
+            })}
+          </div>
         </div>
       </Layout>
     </>
@@ -115,6 +162,13 @@ export const query = graphql`
           price
           category
           url
+        }
+      }
+    }
+    allContentfulTourCategoryList {
+      edges {
+        node {
+          category
         }
       }
     }
