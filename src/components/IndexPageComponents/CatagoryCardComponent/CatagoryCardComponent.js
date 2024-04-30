@@ -1,6 +1,6 @@
 import React from "react";
 import IndividualCatagoryCard from "./IndividualCatagoryCard";
-import CtaButton from "../CtaButton/CtaButton";
+import CtaButton from "../../CtaButton/CtaButton";
 
 const CatagoryCardComponent = ({ categories, link }) => {
   return (

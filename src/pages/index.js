@@ -4,11 +4,11 @@ import Layout from "../components/Layout/Layout";
 import HeroImageComponent from "../components/HeroImageComponent/HeroImageComponent";
 import TextComponent from "../components/TextComponent/TextComponent";
 import SwiperCarousel from "../components/SwiperCarouselComponent/SwiperCarousel";
-import CatagoryCardComponent from "../components/CatagoryCardComponent/CatagoryCardComponent";
-import FaqsComponent from "../components/FaqsComponent/FaqsComponent";
+import CatagoryCardComponent from "../components/IndexPageComponents/CatagoryCardComponent/CatagoryCardComponent";
+import FaqsComponent from "../components/IndexPageComponents/FaqsComponent/FaqsComponent";
 import SecondaryImage from "../components/SecondaryImageComponent/SecondaryImage";
 import InformationHero from "../components/InformationComponent/InformationHero";
-import HowItWorks from "../components/HowItWorksComponent/HowItWorks";
+import HowItWorks from "../components/IndexPageComponents/HowItWorksComponent/HowItWorks";
 
 const IndexPage = ({ data }) => {
   return (

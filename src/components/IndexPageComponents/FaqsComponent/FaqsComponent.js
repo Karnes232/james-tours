@@ -1,5 +1,5 @@
 import React from "react";
-import TextComponent from "../TextComponent/TextComponent";
+import TextComponent from "../../TextComponent/TextComponent";
 import Question from "./Question";
 
 const FaqsComponent = ({ faqs }) => {
