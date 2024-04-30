@@ -1,7 +1,8 @@
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import React from "react";
 import PhotoAlbum from "react-photo-album";
-import useWindowWidth from "../../customHooks/useWindowWidth";
-const PhotoGrid = ({ tourPhotos }) => {
+const PhotoGrid = ({ tourPhotos, effectImage }) => {
+  const imageEffect = getImage(effectImage);
   let photoList = [];
   tourPhotos.forEach((image, key) => {
     const photoObject = {
@@ -12,24 +13,31 @@ const PhotoGrid = ({ tourPhotos }) => {
     photoList.push(photoObject);
   });
   photoList = photoList.sort(() => Math.random() - 0.5);
-  const windowWidth = useWindowWidth();
-  console.log(windowWidth);
-  let targetRowHeight = 0;
-  if (windowWidth < 450) {
-    targetRowHeight = 350;
-  } else {
-    targetRowHeight = 300;
-  }
+
   return (
-    <div className="w-full">
+    <div className="w-full relative">
       <PhotoAlbum
         layout="rows"
-        targetRowHeight={targetRowHeight}
+        targetRowHeight={(containerWidth) => {
+          if (containerWidth < 400) return 75;
+          if (containerWidth < 800) return 200;
+          if (containerWidth < 1100) return 250;
+          return 314;
+        }}
         photos={photoList.slice(0, 6)}
-        containerWidth={1152}
-        columns={3}
+        // containerWidth={1152}
         padding={0}
         spacing={0}
+        // columns={(containerWidth) => {
+        //   if (containerWidth < 400) return 2;
+        //   if (containerWidth < 800) return 3;
+        //   return 4;
+        // }}
+      />
+      <GatsbyImage
+        image={imageEffect}
+        alt=""
+        className="z-50 !absolute -bottom-[2px] md:-bottom-[5px] lg:-bottom-[10px] w-screen"
       />
     </div>
   );
