@@ -7,7 +7,7 @@ import SwiperCarousel from "../components/SwiperCarouselComponent/SwiperCarousel
 import CatagoryCardComponent from "../components/IndexPageComponents/CatagoryCardComponent/CatagoryCardComponent";
 import FaqsComponent from "../components/IndexPageComponents/FaqsComponent/FaqsComponent";
 import SecondaryImage from "../components/SecondaryImageComponent/SecondaryImage";
-import InformationHero from "../components/InformationComponent/InformationHero";
+import InformationHero from "../components/IndexPageComponents/InformationComponent/InformationHero";
 import HowItWorks from "../components/IndexPageComponents/HowItWorksComponent/HowItWorks";
 
 const IndexPage = ({ data }) => {
