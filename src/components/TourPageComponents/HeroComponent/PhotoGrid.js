@@ -22,7 +22,8 @@ const PhotoGrid = ({ tourPhotos, effectImage }) => {
           if (containerWidth < 400) return 75;
           if (containerWidth < 800) return 200;
           if (containerWidth < 1100) return 250;
-          return 314;
+          if (containerWidth < 1600) return 314;
+          return 370;
         }}
         photos={photoList.slice(0, 6)}
         // containerWidth={1152}

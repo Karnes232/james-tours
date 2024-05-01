@@ -26,7 +26,7 @@ const HeroImageComponent = ({ image, effectImage, title, dark, short }) => {
       <div className={`w-full ${imageHeight} relative`}>
         <BackgroundImage
           placeholder={imageSrc[0]?.imageSrc}
-          src={imageSrc[3]?.imageSrc}
+          src={imageSrc?.pop().imageSrc}
           className={`HeroImage ${dark ? "HeroImageDark" : ""}`}
         >
           <div

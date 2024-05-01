@@ -1,6 +1,7 @@
 import React from "react";
 import Layout from "../components/Layout/Layout";
-import PhotoGrid from "../components/TourPageComponents/PhotoGrid";
+import PhotoGrid from "../components/TourPageComponents/HeroComponent/PhotoGrid";
+import TourPageHero from "../components/TourPageComponents/HeroComponent/TourPageHero";
 
 const Tour = ({ pageContext }) => {
   console.log(pageContext.effectImage);
@@ -10,10 +11,11 @@ const Tour = ({ pageContext }) => {
         layoutData={pageContext.layout}
         effectImage={pageContext.effectImage.gatsbyImage}
       >
-        <PhotoGrid
-          tourPhotos={pageContext.tour.images}
+        <TourPageHero
+          tour={pageContext.tour}
           effectImage={pageContext.effectImage}
         />
+
         <div className="h-screen"></div>
       </Layout>
     </>
