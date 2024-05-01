@@ -1,7 +1,8 @@
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import React from "react";
 import PhotoAlbum from "react-photo-album";
-const PhotoGrid = ({ tourPhotos, effectImage }) => {
+import { motion } from "framer-motion";
+const PhotoGrid = ({ tourPhotos, effectImage, title }) => {
   const imageEffect = getImage(effectImage);
   let photoList = [];
   tourPhotos.forEach((image, key) => {
@@ -26,15 +27,25 @@ const PhotoGrid = ({ tourPhotos, effectImage }) => {
           return 370;
         }}
         photos={photoList.slice(0, 6)}
-        // containerWidth={1152}
         padding={0}
         spacing={0}
-        // columns={(containerWidth) => {
-        //   if (containerWidth < 400) return 2;
-        //   if (containerWidth < 800) return 3;
-        //   return 4;
-        // }}
       />
+      <div
+        className={`flex justify-center text-center items-center top-0 h-full w-screen !z-50 absolute`}
+      >
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{
+            duration: 3,
+            delay: 0.3,
+          }}
+          className="font-zeyada text-6xl md:text-7xl lg:text-8xl xl:text-9xl md:w-96 lg:w-[26rem] xl:w-[30rem] text-primary-color"
+        >
+          {title}
+        </motion.div>
+      </div>
       <GatsbyImage
         image={imageEffect}
         alt=""

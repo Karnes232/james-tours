@@ -3,18 +3,24 @@ import PhotoGrid from "./PhotoGrid";
 import HeroImageComponent from "../../HeroImageComponent/HeroImageComponent";
 
 const TourPageHero = ({ tour, effectImage }) => {
+  console.log(tour.name);
   return (
     <>
       <div className="lg:hidden">
         <HeroImageComponent
           image={tour.mainImage.gatsbyImage}
+          title={tour.name}
           effectImage={effectImage}
-          dark={false}
+          dark={true}
           short
         />
       </div>
       <div className="hidden lg:block">
-        <PhotoGrid tourPhotos={tour.images} effectImage={effectImage} />
+        <PhotoGrid
+          tourPhotos={tour.images}
+          effectImage={effectImage}
+          title={tour.name}
+        />
       </div>
     </>
   );
