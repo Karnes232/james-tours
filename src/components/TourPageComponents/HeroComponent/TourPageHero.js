@@ -3,7 +3,6 @@ import PhotoGrid from "./PhotoGrid";
 import HeroImageComponent from "../../HeroImageComponent/HeroImageComponent";
 
 const TourPageHero = ({ tour, effectImage }) => {
-  console.log(tour.name);
   return (
     <>
       <div className="lg:hidden">
