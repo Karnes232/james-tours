@@ -17,7 +17,7 @@ const Tour = ({ pageContext }) => {
           tour={pageContext.tour}
           effectImage={pageContext.effectImage}
         />
-        <div className="max-w-6xl my-5 mx-5 md:mx-10 xl:mx-auto">
+        <div className="max-w-6xl my-5 mx-5">
           <TourInfo category={pageContext.tour.category} />
           <button
             type="submit"
@@ -30,6 +30,10 @@ const Tour = ({ pageContext }) => {
         <TextComponent
           paragraph={pageContext.tour.shortDescription.shortDescription}
           paragraphClassName="mb-4 lg:mb-0 xl:text-xl"
+        />
+        <TextComponent
+          title="About this Tour"
+          titleClassName="mt-5 2xl:mt-10 text-3xl md:text-4xl lg:text-6xl font-zeyada text-primary-color"
         />
         <div className="h-screen"></div>
         <CheckAvailabilityButton />
