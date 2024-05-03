@@ -32,6 +32,10 @@ exports.createPages = async ({ graphql, actions }) => {
       allContentfulTour {
         nodes {
           name
+          duration
+          included
+          whatToBring
+          importantInfomation
           mainImage {
             gatsbyImage(formats: WEBP, width: 3000, placeholder: BLURRED)
             title

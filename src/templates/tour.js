@@ -4,8 +4,10 @@ import TourPageHero from "../components/TourPageComponents/HeroComponent/TourPag
 import TextComponent from "../components/TextComponent/TextComponent";
 import CheckAvailabilityButton from "../components/TourPageComponents/CheckAvailabilityButton/CheckAvailabilityButton";
 import TourInfo from "../components/TourPageComponents/TourInfo";
+import AboutThisTour from "../components/TourPageComponents/AboutThisTour/AboutThisTour";
 
 const Tour = ({ pageContext }) => {
+  console.log(pageContext.tour.importantInfomation);
   return (
     <>
       <Layout
@@ -16,7 +18,7 @@ const Tour = ({ pageContext }) => {
           tour={pageContext.tour}
           effectImage={pageContext.effectImage}
         />
-        <div className="max-w-6xl my-5 mx-5">
+        <div className="max-w-6xl my-5 mx-5 ">
           <TourInfo category={pageContext.tour.category} />
           <button
             type="submit"
@@ -30,9 +32,12 @@ const Tour = ({ pageContext }) => {
           paragraph={pageContext.tour.shortDescription.shortDescription}
           paragraphClassName="mb-4 lg:mb-0 xl:text-xl"
         />
-        <TextComponent
-          title="About this Tour"
-          titleClassName="mt-5 2xl:mt-10 text-3xl md:text-4xl lg:text-6xl font-zeyada text-primary-color"
+
+        <AboutThisTour
+          duration={pageContext.tour.duration}
+          included={pageContext.tour.included}
+          whatToBring={pageContext.tour.whatToBring}
+          importantInfomation={pageContext.tour.importantInfomation}
         />
         <div className="h-screen"></div>
         <CheckAvailabilityButton price={pageContext.tour.price} />
