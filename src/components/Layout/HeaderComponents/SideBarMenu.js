@@ -20,14 +20,14 @@ const SideBarMenu = ({ toggled, setToggled, layoutData }) => {
       >
         <div className="flex flex-col h-full justify-between">
           <div>
-            <div className="mt-7 mb-10 flex justify-center items-center font-yellowtail tracking-wide text-2xl">
+            <div className="mt-7 mb-10 flex justify-center items-center font-yellowtail tracking-wide text-2xl ml-4 pl-5">
               {layoutData.tourCompanyName}
             </div>
             <Menu className="ml-4 overflow-hidden">
               <MenuItem component={<Link to="/" className="hamburger" />}>
                 <p className="hamburger">Home</p>
               </MenuItem>
-              <MenuItem component={<Link to="/tours" className="hamburger" />}>
+              <MenuItem component={<Link to="/tours" state={{ tourGroup: "All" }} className="hamburger" />}>
                 <p className="hamburger">Tours</p>
               </MenuItem>
               <MenuItem component={<Link to="/about" className="hamburger" />}>

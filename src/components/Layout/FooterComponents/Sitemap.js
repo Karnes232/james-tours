@@ -9,7 +9,7 @@ const Sitemap = () => {
         <Link to="/">
           <p className="footerSitemap">Home</p>
         </Link>
-        <Link to="/tours">
+        <Link to="/tours" state={{ tourGroup: "All" }}>
           <p className="footerSitemap">Tours</p>
         </Link>
         <Link to="/about">
