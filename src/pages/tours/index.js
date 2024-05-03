@@ -7,7 +7,6 @@ import SecondaryHero from "../../components/SecondaryImageComponent/SecondaryHer
 import TourCard from "../../components/TourCardComponent/TourCard";
 
 const Index = ({ location, data }) => {
-  console.log(location.state);
   const backendTourList = data.allContentfulTour.edges;
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [tourList, setTourList] = useState(

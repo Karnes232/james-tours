@@ -27,7 +27,15 @@ const SideBarMenu = ({ toggled, setToggled, layoutData }) => {
               <MenuItem component={<Link to="/" className="hamburger" />}>
                 <p className="hamburger">Home</p>
               </MenuItem>
-              <MenuItem component={<Link to="/tours" state={{ tourGroup: "All" }} className="hamburger" />}>
+              <MenuItem
+                component={
+                  <Link
+                    to="/tours"
+                    state={{ tourGroup: "All" }}
+                    className="hamburger"
+                  />
+                }
+              >
                 <p className="hamburger">Tours</p>
               </MenuItem>
               <MenuItem component={<Link to="/about" className="hamburger" />}>

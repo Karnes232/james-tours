@@ -6,7 +6,6 @@ import CheckAvailabilityButton from "../components/TourPageComponents/CheckAvail
 import TourInfo from "../components/TourPageComponents/TourInfo";
 
 const Tour = ({ pageContext }) => {
-  console.log(pageContext.tour.category);
   return (
     <>
       <Layout
@@ -36,7 +35,7 @@ const Tour = ({ pageContext }) => {
           titleClassName="mt-5 2xl:mt-10 text-3xl md:text-4xl lg:text-6xl font-zeyada text-primary-color"
         />
         <div className="h-screen"></div>
-        <CheckAvailabilityButton />
+        <CheckAvailabilityButton price={pageContext.tour.price} />
       </Layout>
     </>
   );
