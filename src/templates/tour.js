@@ -8,7 +8,7 @@ import AboutThisTour from "../components/TourPageComponents/AboutThisTour/AboutT
 import TourSwiperCarousel from "../components/TourPageComponents/SwiperCarouselComponent/TourSwiperCarousel";
 
 const Tour = ({ pageContext }) => {
-  // console.log(pageContext.tour.images);
+  console.log(pageContext.tour.secondaryDescription.secondaryDescription);
   return (
     <>
       <Layout
@@ -45,6 +45,17 @@ const Tour = ({ pageContext }) => {
           images={pageContext.tour.images}
           effectImage={pageContext.effectImage}
         />
+
+        <div className="max-w-5xl my-5 mx-5 xl:mx-auto">
+          <TextComponent
+            paragraph={pageContext.tour.mainDescription.mainDescription}
+            paragraphClassName="my-4 lg:mb-0 xl:text-xl"
+          />
+          <TextComponent
+            paragraph={pageContext.tour.secondaryDescription.secondaryDescription}
+            paragraphClassName="my-4 xl:text-xl"
+          />
+        </div>
 
         <CheckAvailabilityButton price={pageContext.tour.price} />
       </Layout>
