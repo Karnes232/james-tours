@@ -6,9 +6,9 @@ import CheckAvailabilityButton from "../components/TourPageComponents/CheckAvail
 import TourInfo from "../components/TourPageComponents/TourInfo";
 import AboutThisTour from "../components/TourPageComponents/AboutThisTour/AboutThisTour";
 import TourSwiperCarousel from "../components/TourPageComponents/SwiperCarouselComponent/TourSwiperCarousel";
+import Seo from "../components/SEO/seo";
 
 const Tour = ({ pageContext }) => {
-  console.log(pageContext.tour.secondaryDescription.secondaryDescription);
   return (
     <>
       <Layout
@@ -68,3 +68,27 @@ const Tour = ({ pageContext }) => {
 };
 
 export default Tour;
+
+export const Head = ({ pageContext }) => {
+  console.log(pageContext.tour);
+  return (
+    <>
+      <Seo
+        title={pageContext.tour.name}
+        description={pageContext.tour.shortDescription.shortDescription}
+        keywords={pageContext.tour.keywords.join(", ")}
+        // schemaMarkup={{
+        //   "@context": "https://schema.org/",
+        //   "@type": "Product",
+        //   name: pageContext.tour.name,
+        //   image: `https://www.puntacanatourstore.com${pageContext.tour.mainImage.gatsbyImage.images.fallback.src}`,
+        //   description: pageContext.tour.shortDescription.shortDescription,
+        // }}
+      />
+      <link
+        rel="canonical"
+        href={`https://puntacanaexperience.com/tours/${pageContext.tour.url}`}
+      />
+    </>
+  );
+};

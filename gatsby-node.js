@@ -36,6 +36,7 @@ exports.createPages = async ({ graphql, actions }) => {
           included
           whatToBring
           importantInfomation
+          keywords
           mainImage {
             gatsbyImage(formats: WEBP, width: 3000, placeholder: BLURRED)
             title
