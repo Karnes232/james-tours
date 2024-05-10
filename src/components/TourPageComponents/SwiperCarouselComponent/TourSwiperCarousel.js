@@ -3,7 +3,6 @@ import SwiperCarousel from "../../SwiperCarouselComponent/SwiperCarousel";
 import PhotoGrid from "./PhotoGrid";
 
 const TourSwiperCarousel = ({ images, effectImage }) => {
-  console.log(images);
   return (
     <>
       <div className="lg:hidden">
