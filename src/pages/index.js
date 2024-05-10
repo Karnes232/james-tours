@@ -25,7 +25,7 @@ const IndexPage = ({ data }) => {
         dark={false}
         short={false}
       />
-      <div className="xl:my-20">
+      <div className="xl:my-20 mx-5">
         <TextComponent
           title={data.allContentfulPageLayout.edges[0].node.title1}
           titleClassName="mt-5 2xl:mt-10 text-3xl md:text-4xl lg:text-6xl font-zeyada text-primary-color"
@@ -56,13 +56,13 @@ const IndexPage = ({ data }) => {
         effectImage={data.allContentfulAsset.edges[0].node.gatsbyImage}
       />
       <FaqsComponent faqs={data.allContentfulFaqsComponent.edges} />
-      <div className="flex flex-col lg:flex-row max-w-5xl mx-auto space-x-8">
+      <div className="flex flex-col lg:flex-row max-w-5xl mx-auto lg:space-x-8">
         <div className="flex justify-center items-center lg:w-[60rem] xl:w-[70rem] 2xl:w-[80rem]">
           <SecondaryImage
             image={data.allContentfulPageLayout.edges[0].node.secondaryImage}
           />
         </div>
-        <div className="flex flex-col xl:h-[40rem] justify-center">
+        <div className="flex flex-col xl:h-[40rem] justify-center mx-5">
           <TextComponent
             title={data.allContentfulPageLayout.edges[0].node.title3}
             titleClassName="mt-5 2xl:mt-10 text-3xl md:text-4xl lg:text-5xl font-zeyada text-primary-color"

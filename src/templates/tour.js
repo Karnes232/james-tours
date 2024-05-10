@@ -50,10 +50,14 @@ const Tour = ({ pageContext }) => {
           <TextComponent
             paragraph={pageContext.tour.mainDescription.mainDescription}
             paragraphClassName="my-4 lg:mb-0 xl:text-xl"
+            mainDivClassName="xl:mt-10"
           />
           <TextComponent
-            paragraph={pageContext.tour.secondaryDescription.secondaryDescription}
+            paragraph={
+              pageContext.tour.secondaryDescription.secondaryDescription
+            }
             paragraphClassName="my-4 xl:text-xl"
+            mainDivClassName="xl:mb-10"
           />
         </div>
 
