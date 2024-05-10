@@ -9,8 +9,10 @@ import FaqsComponent from "../components/IndexPageComponents/FaqsComponent/FaqsC
 import SecondaryImage from "../components/SecondaryImageComponent/SecondaryImage";
 import InformationHero from "../components/IndexPageComponents/InformationComponent/InformationHero";
 import HowItWorks from "../components/IndexPageComponents/HowItWorksComponent/HowItWorks";
+import Seo from "../components/SEO/seo";
 
 const IndexPage = ({ data }) => {
+  console.log(data.allContentfulSeo.edges[0].node);
   return (
     <Layout
       layoutData={data.allContentfulLayout.nodes[0]}
@@ -102,6 +104,22 @@ export const query = graphql`
         footerBackground {
           gatsbyImage(formats: WEBP, width: 2000, placeholder: BLURRED)
           title
+        }
+      }
+    }
+    allContentfulSeo(filter: { page: { eq: "Index" } }) {
+      edges {
+        node {
+          title
+          description {
+            description
+          }
+          keywords
+          schema {
+            internal {
+              content
+            }
+          }
         }
       }
     }
@@ -219,4 +237,18 @@ export const query = graphql`
 
 export default IndexPage;
 
-export const Head = () => <title>Home Page</title>;
+export const Head = ({ data }) => {
+  const { title, description, keywords, schema } =
+    data.allContentfulSeo.edges[0].node;
+  return (
+    <>
+      <Seo
+        title={title}
+        description={description.description}
+        keywords={keywords.join(", ")}
+        schemaMarkup={schema.internal.content}
+      />
+      <link rel="canonical" href="https://puntacanatourstore.com/" />
+    </>
+  );
+};
