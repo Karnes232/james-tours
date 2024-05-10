@@ -5,9 +5,10 @@ import TextComponent from "../components/TextComponent/TextComponent";
 import CheckAvailabilityButton from "../components/TourPageComponents/CheckAvailabilityButton/CheckAvailabilityButton";
 import TourInfo from "../components/TourPageComponents/TourInfo";
 import AboutThisTour from "../components/TourPageComponents/AboutThisTour/AboutThisTour";
+import TourSwiperCarousel from "../components/TourPageComponents/SwiperCarouselComponent/TourSwiperCarousel";
 
 const Tour = ({ pageContext }) => {
-  console.log(pageContext.tour.importantInfomation);
+  // console.log(pageContext.tour.images);
   return (
     <>
       <Layout
@@ -39,7 +40,12 @@ const Tour = ({ pageContext }) => {
             importantInfomation={pageContext.tour.importantInfomation}
           />
         </div>
-        <div className="h-screen"></div>
+
+        <TourSwiperCarousel
+          images={pageContext.tour.images}
+          effectImage={pageContext.effectImage}
+        />
+
         <CheckAvailabilityButton price={pageContext.tour.price} />
       </Layout>
     </>
