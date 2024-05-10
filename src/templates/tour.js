@@ -18,7 +18,7 @@ const Tour = ({ pageContext }) => {
           tour={pageContext.tour}
           effectImage={pageContext.effectImage}
         />
-        <div className="max-w-6xl my-5 mx-5 ">
+        <div className="max-w-5xl my-5 mx-5 xl:mx-auto">
           <TourInfo category={pageContext.tour.category} />
           <button
             type="submit"
@@ -27,18 +27,18 @@ const Tour = ({ pageContext }) => {
           >
             Book Now
           </button>
-        </div>
-        <TextComponent
-          paragraph={pageContext.tour.shortDescription.shortDescription}
-          paragraphClassName="mb-4 lg:mb-0 xl:text-xl"
-        />
+          <TextComponent
+            paragraph={pageContext.tour.shortDescription.shortDescription}
+            paragraphClassName="my-4 lg:mb-0 xl:text-xl"
+          />
 
-        <AboutThisTour
-          duration={pageContext.tour.duration}
-          included={pageContext.tour.included}
-          whatToBring={pageContext.tour.whatToBring}
-          importantInfomation={pageContext.tour.importantInfomation}
-        />
+          <AboutThisTour
+            duration={pageContext.tour.duration}
+            included={pageContext.tour.included}
+            whatToBring={pageContext.tour.whatToBring}
+            importantInfomation={pageContext.tour.importantInfomation}
+          />
+        </div>
         <div className="h-screen"></div>
         <CheckAvailabilityButton price={pageContext.tour.price} />
       </Layout>
