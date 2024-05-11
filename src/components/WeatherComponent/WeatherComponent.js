@@ -24,20 +24,26 @@ const WeatherComponent = ({ weather }) => {
                 alt={weather.condition.text}
               />
               <div className="flex flex-col">
-                <div className="flex justify-between items-center text-4xl font-bold space-x-1">
+                <div className="flex justify-around items-center text-5xl font-bold space-x-1">
                   <div>{tempatureC.toFixed(0)}</div>
                   <div>
-                    <RiCelsiusLine size={17} />
+                    <RiCelsiusLine size={20} />
                   </div>
                 </div>
-                <div className="flex justify-around items-center text-[.6rem] ">
-                  <span className="text-gray-500 tx">RealFeel</span>{" "}
-                  {feelsLikeC.toFixed(0)}
-                  <RiCelsiusLine size={7} />
+                <div className="flex justify-between items-center text-xs space-x-1">
+                  <div>
+                    <span className="text-gray-500">RealFeel</span>{" "}
+                  </div>
+                  <div>{feelsLikeC.toFixed(0)}</div>
+                  <div>
+                    <RiCelsiusLine size={7} />
+                  </div>
                 </div>
               </div>
             </div>
-            <div className="font-medium text-sm">{weather.condition.text}</div>
+            <div className="font-medium text-sm mt-4">
+              {weather.condition.text}
+            </div>
           </div>
           <div></div>
         </div>
