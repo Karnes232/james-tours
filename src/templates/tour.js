@@ -75,7 +75,7 @@ export const Head = ({ pageContext }) => {
       <Seo
         title={pageContext.tour.name}
         description={pageContext.tour.shortDescription.shortDescription}
-        keywords={pageContext.tour.keywords.join(", ")}
+        keywords={pageContext.tour.keywords?.join(", ")}
         // schemaMarkup={{
         //   "@context": "https://schema.org/",
         //   "@type": "Product",

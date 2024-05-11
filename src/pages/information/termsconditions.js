@@ -122,7 +122,10 @@ export const Head = ({ data }) => {
         keywords={keywords.join(", ")}
         schemaMarkup={schema?.internal?.content}
       />
-      <link rel="canonical" href="https://puntacanatourstore.com/termsconditions" />
+      <link
+        rel="canonical"
+        href="https://puntacanatourstore.com/termsconditions"
+      />
     </>
   );
 };
