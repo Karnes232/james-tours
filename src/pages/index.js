@@ -12,7 +12,6 @@ import HowItWorks from "../components/IndexPageComponents/HowItWorksComponent/Ho
 import Seo from "../components/SEO/seo";
 
 const IndexPage = ({ data }) => {
-  console.log(data.allContentfulSeo.edges[0].node);
   return (
     <Layout
       layoutData={data.allContentfulLayout.nodes[0]}
