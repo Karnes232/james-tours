@@ -6,6 +6,7 @@ import axios from "axios";
 import HeroImageComponent from "../../components/HeroImageComponent/HeroImageComponent";
 import TextComponent from "../../components/TextComponent/TextComponent";
 import SecondaryHero from "../../components/SecondaryImageComponent/SecondaryHero";
+import WeatherComponent from "../../components/WeatherComponent/WeatherComponent";
 const Weather = ({ data }) => {
   const [weatherLocation, setWeatherLocation] = useState(null);
   const [weatherCurrent, setWeatherCurrent] = useState(null);
@@ -15,11 +16,11 @@ const Weather = ({ data }) => {
       const weather = res.data;
       setWeatherLocation(weather.weather.location);
       setWeatherCurrent(weather.weather.current);
-      setWeatherForecast(weather.weather.forecast);
+      setWeatherForecast(weather.weather.forecast.forecastday);
     });
   }, []);
 
-  console.log(data.allContentfulPageLayout.edges[0].node.paragraph1.paragraph1);
+  console.log(weatherForecast);
 
   return (
     <>
@@ -57,6 +58,10 @@ const Weather = ({ data }) => {
           }
           effectImage={data.allContentfulAsset.edges[0].node.gatsbyImage}
         />
+
+        <div className="flex flex-col md:flex-row md:flex-wrap md:justify-evenly 2xl:space-x-10 mx-auto">
+          {weatherCurrent && <WeatherComponent weather={weatherCurrent} />}
+        </div>
         <div className="">weather</div>
         <div>
           <img src={`https:${weatherCurrent?.condition?.icon}`} />
