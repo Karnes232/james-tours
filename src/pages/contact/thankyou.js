@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Layout from "../../components/Layout/Layout";
 import { graphql } from "gatsby";
 import HeroImageComponent from "../../components/HeroImageComponent/HeroImageComponent";
+import Seo from "../../components/SEO/seo";
 
 const Thankyou = ({ data }) => {
   const [name, setName] = useState("");
@@ -92,7 +93,39 @@ export const query = graphql`
         }
       }
     }
+    allContentfulSeo(filter: { page: { eq: "ThankYou" } }) {
+      edges {
+        node {
+          title
+          description {
+            description
+          }
+          keywords
+          schema {
+            internal {
+              content
+            }
+          }
+        }
+      }
+    }
   }
 `;
 
 export default Thankyou;
+
+export const Head = ({ data }) => {
+  const { title, description, keywords, schema } =
+    data.allContentfulSeo.edges[0].node;
+  return (
+    <>
+      <Seo
+        title={title}
+        description={description.description}
+        keywords={keywords.join(", ")}
+        schemaMarkup={schema?.internal?.content}
+      />
+      <link rel="canonical" href="https://puntacanatourstore.com/tours" />
+    </>
+  );
+};

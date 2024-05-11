@@ -3,6 +3,7 @@ import { graphql } from "gatsby";
 import Layout from "../../components/Layout/Layout";
 import HeroImageComponent from "../../components/HeroImageComponent/HeroImageComponent";
 import TextComponent from "../../components/TextComponent/TextComponent";
+import Seo from "../../components/SEO/seo";
 const Privacy = ({ data }) => {
   return (
     <>
@@ -18,7 +19,7 @@ const Privacy = ({ data }) => {
           title={data.allContentfulPageLayout.edges[0].node.title1}
           dark
         />{" "}
-        <div className="my-10 xl:my-20">
+        <div className="my-10 xl:my-20 mx-5">
           <TextComponent
             paragraph={
               data.allContentfulPageLayout.edges[0].node.paragraph1.paragraph1
@@ -89,9 +90,39 @@ export const query = graphql`
         }
       }
     }
+    allContentfulSeo(filter: { page: { eq: "Privacy" } }) {
+      edges {
+        node {
+          title
+          description {
+            description
+          }
+          keywords
+          schema {
+            internal {
+              content
+            }
+          }
+        }
+      }
+    }
   }
 `;
 
 export default Privacy;
 
-export const Head = () => <title>Privacy Page</title>;
+export const Head = ({ data }) => {
+  const { title, description, keywords, schema } =
+    data.allContentfulSeo.edges[0].node;
+  return (
+    <>
+      <Seo
+        title={title}
+        description={description.description}
+        keywords={keywords.join(", ")}
+        schemaMarkup={schema?.internal?.content}
+      />
+      <link rel="canonical" href="https://puntacanatourstore.com/privacy" />
+    </>
+  );
+};

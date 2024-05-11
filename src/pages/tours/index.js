@@ -5,6 +5,7 @@ import HeroImageComponent from "../../components/HeroImageComponent/HeroImageCom
 import TextComponent from "../../components/TextComponent/TextComponent";
 import SecondaryHero from "../../components/SecondaryImageComponent/SecondaryHero";
 import TourCard from "../../components/TourCardComponent/TourCard";
+import Seo from "../../components/SEO/seo";
 
 const Index = ({ location, data }) => {
   const backendTourList = data.allContentfulTour.edges;
@@ -52,7 +53,7 @@ const Index = ({ location, data }) => {
           dark
           short
         />
-        <div className="xl:my-20">
+        <div className="xl:my-20  mx-5">
           <TextComponent
             title={data.allContentfulPageLayout.edges[0].node.title2}
             titleClassName="mt-5 2xl:mt-10 text-3xl md:text-4xl lg:text-6xl font-zeyada text-primary-color"
@@ -119,6 +120,22 @@ export const query = graphql`
         }
       }
     }
+    allContentfulSeo(filter: { page: { eq: "Tours" } }) {
+      edges {
+        node {
+          title
+          description {
+            description
+          }
+          keywords
+          schema {
+            internal {
+              content
+            }
+          }
+        }
+      }
+    }
     allContentfulAsset(filter: { filename: { eq: "effect-shape.png" } }) {
       edges {
         node {
@@ -174,6 +191,20 @@ export const query = graphql`
   }
 `;
 
-export const Head = () => <title>Tours Page</title>;
+export const Head = ({ data }) => {
+  const { title, description, keywords, schema } =
+    data.allContentfulSeo.edges[0].node;
+  return (
+    <>
+      <Seo
+        title={title}
+        description={description.description}
+        keywords={keywords.join(", ")}
+        schemaMarkup={schema?.internal?.content}
+      />
+      <link rel="canonical" href="https://puntacanatourstore.com/tours" />
+    </>
+  );
+};
 
 export default Index;

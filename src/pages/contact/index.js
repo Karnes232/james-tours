@@ -3,6 +3,7 @@ import React from "react";
 import Layout from "../../components/Layout/Layout";
 import HeroImageComponent from "../../components/HeroImageComponent/HeroImageComponent";
 import ContactForm from "../../components/ContactForm/ContactForm";
+import Seo from "../../components/SEO/seo";
 
 const Index = ({ data }) => {
   return (
@@ -64,9 +65,39 @@ export const query = graphql`
         }
       }
     }
+    allContentfulSeo(filter: { page: { eq: "Contact" } }) {
+      edges {
+        node {
+          title
+          description {
+            description
+          }
+          keywords
+          schema {
+            internal {
+              content
+            }
+          }
+        }
+      }
+    }
   }
 `;
 
-export const Head = () => <title>Contact Page</title>;
+export const Head = ({ data }) => {
+  const { title, description, keywords, schema } =
+    data.allContentfulSeo.edges[0].node;
+  return (
+    <>
+      <Seo
+        title={title}
+        description={description.description}
+        keywords={keywords.join(", ")}
+        schemaMarkup={schema?.internal?.content}
+      />
+      <link rel="canonical" href="https://puntacanatourstore.com/tours" />
+    </>
+  );
+};
 
 export default Index;

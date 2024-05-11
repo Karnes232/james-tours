@@ -245,7 +245,7 @@ export const Head = ({ data }) => {
         title={title}
         description={description.description}
         keywords={keywords.join(", ")}
-        schemaMarkup={schema.internal.content}
+        schemaMarkup={schema?.internal?.content}
       />
       <link rel="canonical" href="https://puntacanatourstore.com/" />
     </>
