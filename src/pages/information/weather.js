@@ -1,15 +1,66 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { graphql } from "gatsby";
 import Layout from "../../components/Layout/Layout";
 import Seo from "../../components/SEO/seo";
+import axios from "axios";
+import HeroImageComponent from "../../components/HeroImageComponent/HeroImageComponent";
+import TextComponent from "../../components/TextComponent/TextComponent";
+import SecondaryHero from "../../components/SecondaryImageComponent/SecondaryHero";
 const Weather = ({ data }) => {
+  const [weatherLocation, setWeatherLocation] = useState(null);
+  const [weatherCurrent, setWeatherCurrent] = useState(null);
+  const [weatherForecast, setWeatherForecast] = useState(null);
+  useEffect(() => {
+    axios.get(`/api/weather`).then((res) => {
+      const weather = res.data;
+      setWeatherLocation(weather.weather.location);
+      setWeatherCurrent(weather.weather.current);
+      setWeatherForecast(weather.weather.forecast);
+    });
+  }, []);
+
+  console.log(data.allContentfulPageLayout.edges[0].node.paragraph1.paragraph1);
+
   return (
     <>
       <Layout
         layoutData={data.allContentfulLayout.nodes[0]}
         effectImage={data.allContentfulAsset.edges[0].node.gatsbyImage}
       >
-        <div>weather</div>
+        <HeroImageComponent
+          image={
+            data.allContentfulPageLayout.edges[0].node.pageHeroImage.gatsbyImage
+          }
+          effectImage={data.allContentfulAsset.edges[0].node.gatsbyImage}
+          title={data.allContentfulPageLayout.edges[0].node.title1}
+          dark
+        />
+        <div className="my-10 xl:my-15 mx-5">
+          <TextComponent
+            title={data.allContentfulPageLayout.edges[0].node.title2}
+            paragraph={
+              data.allContentfulPageLayout.edges[0].node.paragraph1.paragraph1
+            }
+            titleClassName="mb-5 2xl:mb-10 text-3xl md:text-4xl lg:text-6xl font-lato"
+            paragraphClassName="mb-4 lg:mb-0 xl:text-xl"
+          />
+          <TextComponent
+            paragraph={
+              data.allContentfulPageLayout.edges[0].node.paragraph2.paragraph2
+            }
+            paragraphClassName="mb-4 lg:mb-0 xl:text-xl"
+          />
+        </div>
+        <SecondaryHero
+          backgroundImage={
+            data.allContentfulPageLayout.edges[0].node.secondaryImage
+          }
+          effectImage={data.allContentfulAsset.edges[0].node.gatsbyImage}
+        />
+        <div className="">weather</div>
+        <div>
+          <img src={`https:${weatherCurrent?.condition?.icon}`} />
+        </div>
       </Layout>
     </>
   );
@@ -54,6 +105,33 @@ export const query = graphql`
             internal {
               content
             }
+          }
+        }
+      }
+    }
+    allContentfulPageLayout(filter: { pageName: { eq: "Weather" } }) {
+      edges {
+        node {
+          pageHeroImage {
+            gatsbyImage(placeholder: BLURRED, formats: WEBP, width: 3000)
+            title
+          }
+          secondaryImage {
+            gatsbyImage(placeholder: BLURRED, formats: WEBP, width: 3000)
+            title
+          }
+          title1
+          title2
+          title3
+          title4
+          paragraph1 {
+            paragraph1
+          }
+          paragraph2 {
+            paragraph2
+          }
+          paragraph3 {
+            paragraph3
           }
         }
       }

@@ -24,7 +24,9 @@ const TextComponent = ({
         </h1>
         <p
           className={`font-montserrat lg:text-lg text-gray-700 lg:mt-5 ${paragraphClassName}`}
-          dangerouslySetInnerHTML={{ __html: paragraph }}
+          dangerouslySetInnerHTML={{
+            __html: paragraph?.replace(/\n\n/g, "<br /><br />"),
+          }}
         ></p>
       </motion.div>
     </div>
