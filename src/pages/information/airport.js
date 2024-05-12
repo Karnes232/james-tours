@@ -5,6 +5,7 @@ import Seo from "../../components/SEO/seo";
 import HeroImageComponent from "../../components/HeroImageComponent/HeroImageComponent";
 import TextComponent from "../../components/TextComponent/TextComponent";
 import SecondaryHero from "../../components/SecondaryImageComponent/SecondaryHero";
+import { FaArrowsRotate } from "react-icons/fa6";
 const Airport = ({ data }) => {
   console.log(data.allContentfulPageLayout.edges[0].node);
   return (
@@ -44,11 +45,27 @@ const Airport = ({ data }) => {
           effectImage={data.allContentfulAsset.edges[0].node.gatsbyImage}
           imageClassName="airplaneImage"
         />
-        <div className="my-10 xl:my-15 w-screen h-72 lg:h-[28rem]  hidden sm:block">
-          <iframe
-            className="w-full h-full"
-            src="https://flights.grupopuntacana.com/"
-          ></iframe>
+        <div className="my-10 xl:my-15 w-screen sm:hidden">
+          <div className="max-w-sm min-w-[22rem] my-5 mx-2 rounded-lg overflow-hidden shadow-lg flex flex-col bg-zinc-50 bg-opacity-60">
+            <div className="flex justify-between items-center text-xs font-semibold py-5 px-4 border-b border-gray-300 border-opacity-50 text-gray-500 ">
+              <FaArrowsRotate />
+              <div className="text-xs">
+                Rotate Phone For Arrivals & Departures Information
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="my-10 xl:my-15 w-screen hidden sm:block">
+          <TextComponent
+            title="Arrivals & Departures"
+            titleClassName="my-5 2xl:mb-10 text-5xl md:text-6xl lg:text-8xl font-lato text-center font-zeyada text-primary-color"
+          />
+          <div className="h-72 lg:h-[28rem] ">
+            <iframe
+              className="w-full h-full"
+              src="https://flights.grupopuntacana.com/"
+            ></iframe>
+          </div>
         </div>
       </Layout>
     </>
