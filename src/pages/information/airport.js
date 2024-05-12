@@ -44,7 +44,12 @@ const Airport = ({ data }) => {
           effectImage={data.allContentfulAsset.edges[0].node.gatsbyImage}
           imageClassName="airplaneImage"
         />
-        <div>Airport</div>
+        <div className="my-10 xl:my-15 w-screen h-72 lg:h-[28rem]  hidden md:block">
+          <iframe
+            className="w-full h-full"
+            src="https://flights.grupopuntacana.com/"
+          ></iframe>
+        </div>
       </Layout>
     </>
   );
