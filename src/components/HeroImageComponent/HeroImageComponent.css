@@ -13,3 +13,7 @@
 .HeroImageDark .react-bg-img-placeholder {
   filter: brightness(0.5);
 }
+
+.airplaneImage .react-bg-img-hd {
+  background-position: 20% 50%;
+}

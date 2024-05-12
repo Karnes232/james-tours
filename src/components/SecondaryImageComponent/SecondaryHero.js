@@ -2,7 +2,7 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import React from "react";
 import BackgroundImage from "react-background-image";
 
-const SecondaryHero = ({ backgroundImage, effectImage }) => {
+const SecondaryHero = ({ backgroundImage, effectImage, imageClassName }) => {
   let heroImage =
     backgroundImage?.gatsbyImage?.images?.fallback?.srcSet.split(",");
   const imageSrc = [];
@@ -12,13 +12,14 @@ const SecondaryHero = ({ backgroundImage, effectImage }) => {
     imageSrc.push(imageObject);
   });
   const imageEffect = getImage(effectImage);
+  console.log(imageClassName);
   return (
     <>
       <div className="w-full h-[40rem] lg:h-[50rem] xl:h-[60rem] relative">
         <BackgroundImage
           placeholder={backgroundImage.gatsbyImage.placeholder.fallback}
           src={imageSrc[2]?.imageSrc}
-          className="myCustomClass"
+          className={`myCustomClass ${imageClassName}`}
         >
           <GatsbyImage
             image={imageEffect}
