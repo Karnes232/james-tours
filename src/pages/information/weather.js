@@ -1,28 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { graphql } from "gatsby";
 import Layout from "../../components/Layout/Layout";
 import Seo from "../../components/SEO/seo";
-import axios from "axios";
 import HeroImageComponent from "../../components/HeroImageComponent/HeroImageComponent";
 import TextComponent from "../../components/TextComponent/TextComponent";
 import SecondaryHero from "../../components/SecondaryImageComponent/SecondaryHero";
 import WeatherComponent from "../../components/WeatherComponent/WeatherComponent";
 const Weather = ({ data }) => {
-  const [weatherLocation, setWeatherLocation] = useState(null);
-  const [weatherCurrent, setWeatherCurrent] = useState(null);
-  const [weatherForecast, setWeatherForecast] = useState(null);
-  const [checked, setChecked] = useState(true);
-  useEffect(() => {
-    axios.get(`/api/weather`).then((res) => {
-      const weather = res.data;
-      setWeatherLocation(weather.weather.location);
-      setWeatherCurrent(weather.weather.current);
-      setWeatherForecast(weather.weather.forecast.forecastday);
-    });
-  }, []);
-
-  console.log(weatherForecast);
-
   return (
     <>
       <Layout
@@ -59,30 +43,7 @@ const Weather = ({ data }) => {
           }
           effectImage={data.allContentfulAsset.edges[0].node.gatsbyImage}
         />
-        <div className="flex justify-end mx-5 mt-5">
-          <label class="inline-flex items-center cursor-pointer">
-            <input
-              type="checkbox"
-              value=""
-              class="sr-only peer"
-              defaultChecked={checked}
-              onChange={() => setChecked(!checked)}
-            />
-            <div class="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
-            <span class="ms-3 text-sm font-medium text-gray-900 dark:text-gray-300 w-20">
-              {checked ? "Celsius" : "Fahrenheit"}
-            </span>
-          </label>
-        </div>
-        <div className="flex flex-col md:flex-row md:flex-wrap md:justify-evenly 2xl:space-x-10 mx-auto">
-          {weatherCurrent && (
-            <WeatherComponent weather={weatherCurrent} checked={checked} />
-          )}
-        </div>
-        <div className="">weather</div>
-        <div>
-          <img src={`https:${weatherCurrent?.condition?.icon}`} />
-        </div>
+        <WeatherComponent />
       </Layout>
     </>
   );
