@@ -12,7 +12,6 @@ const SecondaryHero = ({ backgroundImage, effectImage, imageClassName }) => {
     imageSrc.push(imageObject);
   });
   const imageEffect = getImage(effectImage);
-  console.log(imageClassName);
   return (
     <>
       <div className="w-full h-[40rem] lg:h-[50rem] xl:h-[60rem] relative">

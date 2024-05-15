@@ -19,7 +19,7 @@ const WeatherComponent = () => {
     <div className="max-w-7xl mx-auto">
       <TextComponent
         title="Current Forecast"
-        titleClassName="my-5 2xl:mb-10 text-5xl md:text-6xl lg:text-8xl font-lato text-center font-zeyada text-primary-color"
+        titleClassName="my-5 2xl:mb-10 text-5xl md:text-6xl lg:text-8xl text-center font-zeyada text-primary-color"
       />
       <div className="flex justify-end mx-5 mt-5">
         <label className="inline-flex items-center cursor-pointer">
