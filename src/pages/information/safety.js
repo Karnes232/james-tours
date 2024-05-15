@@ -6,8 +6,8 @@ import HeroImageComponent from "../../components/HeroImageComponent/HeroImageCom
 import useWindowWidth from "../../customHooks/useWindowWidth";
 import TextComponent from "../../components/TextComponent/TextComponent";
 import SecondaryHero from "../../components/SecondaryImageComponent/SecondaryHero";
+import MedicalNumberComponent from "../../components/MedicalComponents/MedicalNumberComponent";
 const Safety = ({ data }) => {
-  console.log(data.allContentfulPageLayout.edges[0].node.paragraph3);
   const winWidth = useWindowWidth();
   return (
     <>
@@ -49,12 +49,12 @@ const Safety = ({ data }) => {
           effectImage={data.allContentfulAsset.edges[0].node.gatsbyImage}
           imageClassName="airplaneImage"
         />
-        <div className="my-10 xl:my-15 mx-5">
-          <TextComponent
-            title={data.allContentfulPageLayout.edges[0].node.title4}
-            titleClassName="my-5 2xl:mb-10 text-5xl md:text-6xl lg:text-8xl font-zeyada text-primary-color"
-          />
-        </div>
+        <MedicalNumberComponent
+          title={data.allContentfulPageLayout.edges[0].node.title4}
+          numbers={
+            data.allContentfulPageLayout.edges[0].node.paragraph3.paragraph3
+          }
+        />
       </Layout>
     </>
   );
