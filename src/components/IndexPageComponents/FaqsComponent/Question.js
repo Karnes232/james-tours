@@ -19,9 +19,12 @@ const Question = ({ question, answer }) => {
         </div>
       </div>
       {readMore ? (
-        <div className="p-2 text-sm md:text-base mb-2 flex items-center leading-relaxed md:mx-[2rem]">
-          {answer}
-        </div>
+        <div
+          className="p-2 text-sm md:text-base mb-2 items-center leading-relaxed md:mx-[2rem]"
+          dangerouslySetInnerHTML={{
+            __html: answer,
+          }}
+        ></div>
       ) : (
         <></>
       )}

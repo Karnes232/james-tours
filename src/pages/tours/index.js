@@ -35,8 +35,8 @@ const Index = ({ location, data }) => {
   };
 
   useEffect(() => {
-    setFilter(location.state.tourGroup);
-  }, []);
+    setFilter(location?.state?.tourGroup || "All");
+  }, [location?.state?.tourGroup]);
 
   return (
     <>

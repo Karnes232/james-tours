@@ -64,6 +64,7 @@ const Airport = ({ data }) => {
             <iframe
               className="w-full h-full"
               src="https://flights.grupopuntacana.com/"
+              title="Punta Cana Airport Arrivals & Departures"
             ></iframe>
           </div>
         </div>
