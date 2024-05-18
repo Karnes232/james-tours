@@ -6,6 +6,10 @@ const TourCard = ({ tour }) => {
   const image = getImage(tour?.mainImage?.gatsbyImage);
   console.log(tour);
   return (
+    <>
+    <input type="hidden" name="tourName" value={tour?.name} />
+    <input type="hidden" name="guestCount" value={guestAmount} />
+    {tour &&
     <div className="w-80 xl:w-[25rem] flex flex-col my-5 xl:mt-24">
       <div className="flex justify-between mb-5 mt-2">
         <div className="flex w-full justify-between">
@@ -19,7 +23,7 @@ const TourCard = ({ tour }) => {
               <h1 className="text-lg font-bold truncate lg:whitespace-normal">
                 {tour?.name}
               </h1>
-              <input type="hidden" name="tourName" value={tour?.name} />
+              
               <p className="text-gray-600 text-end flex items-center justify-end">
                 ${tour?.price}
               </p>
@@ -35,7 +39,7 @@ const TourCard = ({ tour }) => {
                 +
               </button>
               <p>{guestAmount}</p>
-              <input type="hidden" name="guestCount" value={guestAmount} />
+              
               <button
                 className="px-4 py-2 bg-secondary-color text-primary-color text-xs font-bold uppercase rounded hover:opacity-70 focus:outline-none focus:bg-gray-700"
                 onClick={(e) => {
@@ -49,7 +53,8 @@ const TourCard = ({ tour }) => {
           </div>
         </div>
       </div>
-    </div>
+    </div> }
+    </>
   );
 };
 
