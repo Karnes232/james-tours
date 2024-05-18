@@ -1,7 +1,6 @@
 import React from "react";
 import CreatableSelect from "react-select/creatable";
 const HotelSelect = ({ hotelList }) => {
-  console.log(hotelList);
   let options = [];
   hotelList.map((hotel) => {
     let option = {

@@ -7,11 +7,12 @@ const DatePicker = ({ date, setDate, value, setValue }) => {
     const date = new Date();
     date.setDate(date.getDate() + futureDays);
     setDate(date);
-  }, []);
+  }, [setDate]);
 
   const handleValueChange = (newValue) => {
     setValue(newValue);
   };
+
   return (
     <>
       <input type="hidden" name="Date" value={value.startDate} />

@@ -4,13 +4,12 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import DatePicker from "./DatePicker";
 const TourCard = ({ tour }) => {
   const [guestAmount, setGuestAmount] = useState(1);
-  const [date, setDate] = useState(undefined);
+  const [date, setDate] = useState("");
   const [value, setValue] = useState({
     startDate: date,
     endDate: null,
   });
   const image = getImage(tour?.mainImage?.gatsbyImage);
-  console.log(tour);
   return (
     <>
       <input type="hidden" name="tourName" value={tour?.name} />
@@ -56,6 +55,7 @@ const TourCard = ({ tour }) => {
                     className="px-4 py-2 bg-secondary-color text-primary-color text-xs font-bold uppercase rounded hover:opacity-70 focus:outline-none focus:bg-gray-700"
                     onClick={(e) => {
                       e.preventDefault();
+
                       setGuestAmount(guestAmount - 1);
                     }}
                   >
