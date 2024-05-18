@@ -17,7 +17,7 @@ const ReservationContactForm = ({ formName, url, hotelList, tour }) => {
         data-netlify="true"
         data-netlify-honeypot="bot-field"
         id={formName}
-        className="w-full md:w-full max-w- xl:max-w-4xl flex flex-col justify-center items-center mx-auto my-5"
+        className="w-full md:w-full max-w- xl:max-w-4xl flex flex-col justify-center items-center mx-auto mt-5 mb-20"
       >
         <input type="hidden" name="form-name" value={formName} />
         <div className="flex flex-col lg:flex-row xl:mt-10 lg:gap-12">

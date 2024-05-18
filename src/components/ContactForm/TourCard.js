@@ -33,8 +33,8 @@ const TourCard = ({ tour }) => {
                 alt={tour?.name}
                 className="rounded-md w-32 h-32 md:w-32 md:h-32 object-cover"
               />
-              <div className="flex flex-col justify-between w-2/3">
-                <div className="flex gap-4 justify-center items-center">
+              <div className="flex flex-col justify-center w-2/3">
+                <div className="flex gap-4 justify-center items-center pt-3">
                   <button
                     className="px-4 py-2 bg-secondary-color text-primary-color text-xs font-bold uppercase rounded hover:opacity-70 focus:outline-none focus:bg-gray-700"
                     onClick={(e) => {
@@ -56,7 +56,7 @@ const TourCard = ({ tour }) => {
                     -
                   </button>
                 </div>
-                <div className="flex justify-center items-center">
+                <div className="flex justify-center items-center pt-3">
                   Total Cost: ${tour?.price * guestAmount}
                 </div>
                 <DatePicker />

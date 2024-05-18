@@ -26,7 +26,7 @@ const Thankyou = ({ data }) => {
           dark
           short
         />{" "}
-        <main className="">
+        <main className="my-20">
           <div className="flex flex-col items-center max-w-xs xl:max-w-sm mx-auto">
             <div classNam="">
               <div className="flex flex-col justify-center items-center text-slate-600 ">

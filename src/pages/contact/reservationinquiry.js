@@ -28,7 +28,6 @@ const ReservationInquiry = ({ location, data }) => {
           hotelList={data?.allContentfulHotelList?.edges[0]?.node?.hotel?.sort()}
           tour={tour}
         />
-        <div className="h-96"></div>
       </Layout>
     </>
   );
