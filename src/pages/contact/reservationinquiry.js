@@ -6,7 +6,7 @@ import { graphql } from "gatsby";
 import ReservationContactForm from "../../components/ContactForm/ReservationContactForm";
 
 const ReservationInquiry = ({ location, data }) => {
-  console.log(location);
+  const tour = location?.state?.tour || null;
   return (
     <>
       <Layout
@@ -26,6 +26,7 @@ const ReservationInquiry = ({ location, data }) => {
           formName="reservation"
           url="/contact/thankyou/?name="
           hotelList={data?.allContentfulHotelList?.edges[0]?.node?.hotel?.sort()}
+          tour={tour}
         />
         <div className="h-96"></div>
       </Layout>

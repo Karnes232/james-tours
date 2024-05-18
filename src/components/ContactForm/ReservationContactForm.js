@@ -3,8 +3,9 @@ import ContactInfo from "./ContactInfo";
 import MoreInfo from "./MoreInfo";
 import { motion } from "framer-motion";
 import HotelSelect from "./HotelSelect";
+import TourCard from "./TourCard";
 
-const ReservationContactForm = ({ formName, url, hotelList }) => {
+const ReservationContactForm = ({ formName, url, hotelList, tour }) => {
   const [name, setName] = useState("");
 
   return (
@@ -20,11 +21,12 @@ const ReservationContactForm = ({ formName, url, hotelList }) => {
       >
         <input type="hidden" name="form-name" value={formName} />
         <div className="flex flex-col xl:flex-row xl:mt-10 xl:gap-12">
-          <div className="w-80 xl:w-[25rem] flex flex-col mt-5 xl:mt-24">
+          <div className="w-80 xl:w-[25rem] flex flex-col my-5 xl:mt-24">
             <ContactInfo name={name} setName={setName} />
             <MoreInfo />
             <HotelSelect hotelList={hotelList} />
           </div>
+          {tour ? <TourCard tour={tour} /> : <></>}
         </div>
         <motion.button
           initial={{
