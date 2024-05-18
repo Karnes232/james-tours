@@ -25,7 +25,9 @@ const ReservationInquiry = ({ location, data }) => {
         <ReservationContactForm
           formName="reservation"
           url="/contact/thankyou/?name="
+          hotelList={data?.allContentfulHotelList?.edges[0]?.node?.hotel?.sort()}
         />
+        <div className="h-96"></div>
       </Layout>
     </>
   );
@@ -82,6 +84,13 @@ export const query = graphql`
               content
             }
           }
+        }
+      }
+    }
+    allContentfulHotelList {
+      edges {
+        node {
+          hotel
         }
       }
     }
