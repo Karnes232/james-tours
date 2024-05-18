@@ -5,9 +5,10 @@ import Seo from "../../components/SEO/seo";
 import HeroImageComponent from "../../components/HeroImageComponent/HeroImageComponent";
 import TextComponent from "../../components/TextComponent/TextComponent";
 import SecondaryHero from "../../components/SecondaryImageComponent/SecondaryHero";
+import useWindowWidth from "../../customHooks/useWindowWidth";
 
 const Index = ({ data }) => {
-  console.log(data.allContentfulPageLayout.edges[0].node);
+  const winWidth = useWindowWidth();
   return (
     <>
       <Layout
@@ -20,8 +21,8 @@ const Index = ({ data }) => {
           }
           effectImage={data.allContentfulAsset.edges[0].node.gatsbyImage}
           title={data.allContentfulLayout.nodes[0].tourCompanyName}
-          dark={false}
-          short={false}
+          dark={true}
+          short={winWidth > 600 ? false : true}
         />
         <div className="xl:my-20 mx-5">
           <TextComponent
@@ -29,7 +30,7 @@ const Index = ({ data }) => {
             paragraph={
               data.allContentfulPageLayout.edges[0].node.paragraph1.paragraph1
             }
-            titleClassName="mt-5 2xl:mt-10 text-3xl md:text-4xl lg:text-6xl font-zeyada text-primary-color"
+            titleClassName="mt-5 2xl:my-10 text-3xl md:text-4xl lg:text-6xl font-zeyada text-primary-color xl:text-center"
             paragraphClassName="mb-4 lg:mb-0 xl:text-xl"
           />
           <TextComponent
@@ -37,7 +38,7 @@ const Index = ({ data }) => {
             paragraph={
               data.allContentfulPageLayout.edges[0].node.paragraph2.paragraph2
             }
-            titleClassName="mt-5 2xl:mt-10 text-3xl md:text-4xl lg:text-6xl font-zeyada text-primary-color"
+            titleClassName="mt-5 2xl:mt-10 text-3xl md:text-4xl lg:text-6xl font-zeyada text-primary-color xl:text-center"
             paragraphClassName="mb-4 lg:mb-0 xl:text-xl"
           />
 
@@ -46,7 +47,7 @@ const Index = ({ data }) => {
             paragraph={
               data.allContentfulPageLayout.edges[0].node.paragraph3.paragraph3
             }
-            titleClassName="mt-5 2xl:mt-10 text-3xl md:text-4xl lg:text-6xl font-zeyada text-primary-color"
+            titleClassName="mt-5 2xl:mt-10 text-3xl md:text-4xl lg:text-6xl font-zeyada text-primary-color xl:text-center"
             paragraphClassName="mb-4 lg:mb-0 xl:text-xl"
           />
         </div>
@@ -60,7 +61,7 @@ const Index = ({ data }) => {
         <div className="xl:my-20 mx-5">
           <TextComponent
             title={data.allContentfulPageLayout.edges[0].node.title4}
-            titleClassName="mt-5 2xl:mt-10 text-3xl md:text-4xl lg:text-6xl font-zeyada text-primary-color"
+            titleClassName="mt-5 2xl:mt-10 text-3xl md:text-4xl lg:text-6xl font-zeyada text-primary-color text-center"
           />
         </div>
       </Layout>
