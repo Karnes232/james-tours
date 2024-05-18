@@ -1,13 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import Datepicker from "react-tailwindcss-datepicker";
 
-const DatePicker = () => {
-  const [date, setDate] = useState(undefined);
-  const [value, setValue] = useState({
-    startDate: date,
-    endDate: null,
-  });
-
+const DatePicker = ({ date, setDate, value, setValue }) => {
   useEffect(() => {
     const futureDays = 4;
     const date = new Date();

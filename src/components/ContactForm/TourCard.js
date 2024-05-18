@@ -4,12 +4,18 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import DatePicker from "./DatePicker";
 const TourCard = ({ tour }) => {
   const [guestAmount, setGuestAmount] = useState(1);
+  const [date, setDate] = useState(undefined);
+  const [value, setValue] = useState({
+    startDate: date,
+    endDate: null,
+  });
   const image = getImage(tour?.mainImage?.gatsbyImage);
   console.log(tour);
   return (
     <>
       <input type="hidden" name="tourName" value={tour?.name} />
       <input type="hidden" name="guestCount" value={guestAmount} />
+      <input type="hidden" name="Date" value={value?.startDate} />
       <input
         type="hidden"
         name="totalCost"
@@ -59,7 +65,12 @@ const TourCard = ({ tour }) => {
                 <div className="flex justify-center items-center pt-3">
                   Total Cost: ${tour?.price * guestAmount}
                 </div>
-                <DatePicker />
+                <DatePicker
+                  date={date}
+                  setDate={setDate}
+                  value={value}
+                  setValue={setValue}
+                />
               </div>
             </div>
           </div>
