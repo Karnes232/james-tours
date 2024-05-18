@@ -13,7 +13,7 @@ const TourCard = ({ tour }) => {
       <input
         type="hidden"
         name="totalCost"
-        value={`$${tour.price * guestAmount}`}
+        value={`$${tour?.price * guestAmount}`}
       />
       {tour && (
         <div className="w-80 xl:w-[25rem] flex flex-col my-5 xl:mt-24">
@@ -57,7 +57,7 @@ const TourCard = ({ tour }) => {
                   </button>
                 </div>
                 <div className="flex justify-center items-center">
-                  Total Cost: ${tour.price * guestAmount}
+                  Total Cost: ${tour?.price * guestAmount}
                 </div>
                 <DatePicker />
               </div>
