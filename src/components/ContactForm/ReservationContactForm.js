@@ -20,13 +20,13 @@ const ReservationContactForm = ({ formName, url, hotelList, tour }) => {
         className="w-full md:w-full max-w- xl:max-w-4xl flex flex-col justify-center items-center mx-auto my-5"
       >
         <input type="hidden" name="form-name" value={formName} />
-        <div className="flex flex-col xl:flex-row xl:mt-10 xl:gap-12">
+        <div className="flex flex-col lg:flex-row xl:mt-10 lg:gap-12">
           <div className="w-80 xl:w-[25rem] flex flex-col my-5 xl:mt-24">
             <ContactInfo name={name} setName={setName} />
-            <MoreInfo />
             <HotelSelect hotelList={hotelList} />
+            <MoreInfo />
           </div>
-          {tour ? <TourCard tour={tour} /> : <></>}
+          <TourCard tour={tour} />
         </div>
         <motion.button
           initial={{

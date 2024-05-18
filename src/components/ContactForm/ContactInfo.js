@@ -31,7 +31,6 @@ const ContactInfo = ({ name, setName }) => {
           Email address
         </label>
       </div>
-      <div className="relative z-0 mb-6 w-full group"></div>
     </>
   );
 };
