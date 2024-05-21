@@ -4,7 +4,9 @@ import Layout from "../../components/Layout/Layout";
 import HeroImageComponent from "../../components/HeroImageComponent/HeroImageComponent";
 import TextComponent from "../../components/TextComponent/TextComponent";
 import Seo from "../../components/SEO/seo";
+import useWindowWidth from "../../customHooks/useWindowWidth";
 const Privacy = ({ data }) => {
+  const winWidth = useWindowWidth();
   return (
     <>
       <Layout
@@ -18,6 +20,7 @@ const Privacy = ({ data }) => {
           effectImage={data.allContentfulAsset.edges[0].node.gatsbyImage}
           title={data.allContentfulPageLayout.edges[0].node.title1}
           dark
+          short={winWidth > 600 ? false : true}
         />{" "}
         <div className="my-10 xl:my-20 mx-5">
           <TextComponent

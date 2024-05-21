@@ -6,7 +6,9 @@ import HeroImageComponent from "../../components/HeroImageComponent/HeroImageCom
 import TextComponent from "../../components/TextComponent/TextComponent";
 import SecondaryHero from "../../components/SecondaryImageComponent/SecondaryHero";
 import WeatherComponent from "../../components/WeatherComponent/WeatherComponent";
+import useWindowWidth from "../../customHooks/useWindowWidth";
 const Weather = ({ data }) => {
+  const winWidth = useWindowWidth();
   return (
     <>
       <Layout
@@ -20,6 +22,7 @@ const Weather = ({ data }) => {
           effectImage={data.allContentfulAsset.edges[0].node.gatsbyImage}
           title={data.allContentfulPageLayout.edges[0].node.title1}
           dark
+          short={winWidth > 600 ? false : true}
         />
         <div className="my-10 xl:my-15 mx-5">
           <TextComponent
