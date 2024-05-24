@@ -175,7 +175,8 @@ export const query = graphql`
           shortDescription {
             shortDescription
           }
-          price
+          cost
+          depositPrice
           category
           url
         }

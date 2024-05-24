@@ -10,6 +10,7 @@ import Seo from "../components/SEO/seo";
 import { Link } from "gatsby";
 
 const Tour = ({ pageContext }) => {
+  console.log(pageContext.tour);
   return (
     <>
       <Layout
@@ -38,6 +39,8 @@ const Tour = ({ pageContext }) => {
           />
 
           <AboutThisTour
+            cost={pageContext.tour.cost}
+            depositPrice={pageContext.tour.depositPrice}
             duration={pageContext.tour.duration}
             included={pageContext.tour.included}
             whatToBring={pageContext.tour.whatToBring}

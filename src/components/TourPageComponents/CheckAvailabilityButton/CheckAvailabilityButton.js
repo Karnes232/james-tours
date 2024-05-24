@@ -2,6 +2,7 @@ import { Link } from "gatsby";
 import React from "react";
 
 const CheckAvailabilityButton = ({ tour }) => {
+  let price = tour?.cost + tour?.depositPrice;
   return (
     <nav className="bg-white px-4 border-t-2 border-primary-color mt-0 fixed w-full z-[100] bottom-0 md:hidden">
       <div className="flex justify-between">
@@ -9,7 +10,7 @@ const CheckAvailabilityButton = ({ tour }) => {
           <div className="text-xs">From</div>
           <div className="text-xs flex items-center">
             <span className="font-semibold text-lg mr-2">
-              ${tour?.price?.toFixed(2)}
+              ${price.toFixed(2)}
             </span>{" "}
             per person
           </div>

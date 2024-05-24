@@ -37,6 +37,8 @@ exports.createPages = async ({ graphql, actions }) => {
           whatToBring
           importantInfomation
           keywords
+          cost
+          depositPrice
           mainImage {
             gatsbyImage(formats: WEBP, width: 3000, placeholder: BLURRED)
             title
@@ -44,7 +46,6 @@ exports.createPages = async ({ graphql, actions }) => {
           shortDescription {
             shortDescription
           }
-          price
           category
           url
           mainDescription {

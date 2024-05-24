@@ -7,7 +7,6 @@ import TourCard from "./TourCard";
 
 const ReservationContactForm = ({ formName, url, hotelList, tour }) => {
   const [name, setName] = useState("");
-
   return (
     <>
       <form
@@ -27,6 +26,10 @@ const ReservationContactForm = ({ formName, url, hotelList, tour }) => {
             <MoreInfo />
           </div>
           <TourCard tour={tour} />
+        </div>
+        <div className="w-80 xl:w-[25rem] text-center my-5">
+          To confirm your reservation a deposit of ${tour?.depositPrice} per
+          person is required
         </div>
         <motion.button
           initial={{

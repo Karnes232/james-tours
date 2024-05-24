@@ -10,16 +10,13 @@ const TourCard = ({ tour }) => {
     endDate: null,
   });
   const image = getImage(tour?.mainImage?.gatsbyImage);
+  let price = tour?.cost + tour?.depositPrice;
   return (
     <>
       <input type="hidden" name="tourName" value={tour?.name} />
       <input type="hidden" name="guestCount" value={guestAmount} />
       <input type="hidden" name="Date" value={value?.startDate} />
-      <input
-        type="hidden"
-        name="totalCost"
-        value={`$${tour?.price * guestAmount}`}
-      />
+      <input type="hidden" name="totalCost" value={`$${price * guestAmount}`} />
       {tour && (
         <div className="w-80 xl:w-[25rem] flex flex-col my-5 xl:mt-24">
           <div className="flex flex-col justify-between mb-5 mt-2">
@@ -29,7 +26,7 @@ const TourCard = ({ tour }) => {
               </h1>
 
               <p className="text-gray-600 text-end flex items-center justify-end">
-                ${tour?.price}
+                ${price}
               </p>
             </div>
             <div className="flex w-full justify-between">
@@ -63,7 +60,7 @@ const TourCard = ({ tour }) => {
                   </button>
                 </div>
                 <div className="flex justify-center items-center pt-3">
-                  Total Cost: ${tour?.price * guestAmount}
+                  Total Cost: ${price * guestAmount}
                 </div>
                 <DatePicker
                   date={date}

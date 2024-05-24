@@ -3,8 +3,17 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import React from "react";
 
 const TourCard = ({ tour }) => {
-  const { name, price, mainImage, shortDescription, url, category } = tour.node;
+  const {
+    name,
+    cost,
+    depositPrice,
+    mainImage,
+    shortDescription,
+    url,
+    category,
+  } = tour.node;
   const image = getImage(mainImage?.gatsbyImage);
+  let price = cost + depositPrice;
   return (
     <>
       <Link to={url}>
