@@ -42,6 +42,7 @@ const SwiperCarousel = ({ photoList, effectImage }) => {
                 image={image.image}
                 alt={image.title}
                 className="h-full object-cover w-full brightness-90"
+                loading="lazy"
                 // width={screenWidth > 600 ? 1920 : 640}
                 // height={screenWidth > 600 ? 1280 : 427}
               />
