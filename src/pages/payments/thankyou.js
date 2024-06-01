@@ -1,35 +1,36 @@
-import { graphql } from "gatsby";
 import React, { useEffect, useState } from "react";
 import Seo from "../../components/SEO/seo";
+import { graphql } from "gatsby";
 import Layout from "../../components/Layout/Layout";
 import HeroImageComponent from "../../components/HeroImageComponent/HeroImageComponent";
 import useWindowWidth from "../../customHooks/useWindowWidth";
-import PersonalInformation from "../../components/PaymentComponents/PersonalInformation";
 import TourCard from "../../components/PaymentComponents/TourCard";
-import Payment from "../../components/PaymentComponents/Payment";
 
-const Index = ({ data }) => {
+const ThankYou = ({ data }) => {
   const winWidth = useWindowWidth();
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [guestCount, setGuestCount] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
   const [tour, setTour] = useState("");
-  const [hotel, setHotel] = useState("");
+  const [deposit, setDeposit] = useState("");
+  const [balance, setBalance] = useState("");
+  const [guestCount, setGuestCount] = useState("");
   const [date, setDate] = useState("");
+
   useEffect(() => {
     const searchParams = new URLSearchParams(document.location.search);
-    setName(searchParams.get("name"));
-    setEmail(searchParams.get("email"));
-    setGuestCount(searchParams.get("guestCount"));
+    setFirstName(searchParams.get("firstname"));
+    setLastName(searchParams.get("lastname"));
     setTour(searchParams.get("tour"));
-    setHotel(searchParams.get("hotel"));
+    setDeposit(searchParams.get("deposit"));
+    setBalance(searchParams.get("balance"));
+    setGuestCount(searchParams.get("guestCount"));
     setDate(searchParams.get("date"));
   }, []);
 
   let selectedTour = data.allContentfulTour.edges.find(
     (listedTour) => listedTour.node.name === tour,
   );
-
+  let totalPrice = parseInt(deposit) + parseInt(balance);
   return (
     <Layout
       layoutData={data.allContentfulLayout.nodes[0]}
@@ -44,23 +45,57 @@ const Index = ({ data }) => {
         dark
         short={winWidth > 600 ? false : true}
       />
-      <main className="mt-14 md:mt-32 xl:mt-40">
-        <div className=" mx-auto flex flex-col justify-center items-center text-secondary-color w-11/12 md:w-9/12 lg:w-6/12 xl:w-4/12 md:text-lg">
-          <PersonalInformation name={name} email={email} />
-          <TourCard
-            tour={selectedTour?.node}
-            guestCount={guestCount}
-            date={date}
-          />
-          <Payment
-            guestCount={guestCount}
-            depositPrice={selectedTour?.node.depositPrice}
-            cost={selectedTour?.node.cost}
-            tour={tour}
-            date={date}
-          />
+
+      <main className="flex flex-col lg:flex-row lg:gap-24 lg:max-w-6xl lg:mx-auto">
+        <div className="flex flex-col items-center max-w-xs xl:max-w-sm mx-auto mb-5">
+          <div className="">
+            <div className="flex flex-col justify-center items-center text-slate-600 ">
+              <div className="text-2xl xl:text-4xl font-serif text-center mt-6">
+                Thank you {firstName} {lastName}, our team will reach out to you
+                shortly!
+              </div>
+
+              <div className="text-center text-sm xl:text-base mt-2 xl:mt-6">
+                Please feel free to{" "}
+                <a
+                  href={`mailto:${data.allContentfulLayout.nodes[0].email}`}
+                  aria-label="Gmail"
+                  rel="noreferrer"
+                  className="underline"
+                >
+                  contact us
+                </a>{" "}
+                with any questions or concerns.
+              </div>
+            </div>
+          </div>
+          <div className="max-w-xs mx-auto lg:mx-0 flex flex-col justify-center">
+            <TourCard
+              tour={selectedTour?.node}
+              guestCount={guestCount}
+              date={date}
+            />
+          </div>
         </div>
       </main>
+      <section className="my-5 max-w-xs mx-auto">
+        <section className="space-x-16 flex justify-between mx-auto">
+          <div className="text-lg font-bold">Total Cost</div>
+          <div className="text-lg">${parseInt(totalPrice).toFixed(2)}</div>
+        </section>
+        <section className="space-x-16 flex justify-between mx-auto my-1">
+          <div className="text-lg font-bold">Deposit</div>
+          <div className="text-lg">${deposit}</div>
+        </section>
+        <section className="space-x-16 flex justify-between mx-auto">
+          <div className="text-lg font-bold">Remaining Balance</div>
+          <div className="text-lg">${parseInt(balance).toFixed(2)}</div>
+        </section>
+        <div className="text-center text-sm xl:text-base mt-2 xl:mt-6">
+          Please note that the remaining balance is to be paid in cash on the
+          day of the excusion
+        </div>
+      </section>
     </Layout>
   );
 };
@@ -173,5 +208,4 @@ export const Head = ({ data }) => {
     </>
   );
 };
-
-export default Index;
+export default ThankYou;
