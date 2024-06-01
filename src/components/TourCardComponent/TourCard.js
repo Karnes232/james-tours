@@ -22,6 +22,7 @@ const TourCard = ({ tour }) => {
             image={image}
             alt=""
             className="w-full object-cover h-64 lg:h-60"
+            loading="lazy"
           />
           <div className="px-6 py-4">
             <div className="font-bold h-10 text-lg mb-2 flex justify-between">

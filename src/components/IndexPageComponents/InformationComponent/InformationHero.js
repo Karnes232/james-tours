@@ -29,6 +29,7 @@ const InformationHero = ({ backgroundImage, effectImage }) => {
             image={imageEffect}
             alt=""
             className="z-50 !absolute -top-[2px] rotate-180 w-screen"
+            loading="lazy"
           />
           <div className="h-full flex items-center justify-center">
             <div className="flex flex-wrap justify-center lg:space-x-8 items-center h-3/4">
@@ -58,6 +59,7 @@ const InformationHero = ({ backgroundImage, effectImage }) => {
             image={imageEffect}
             alt=""
             className="z-50 !absolute -bottom-[1px] w-screen"
+            loading="lazy"
           />
         </BackgroundImage>
       </div>

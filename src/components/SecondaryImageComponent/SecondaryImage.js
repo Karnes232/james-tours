@@ -4,7 +4,12 @@ const SecondaryImage = ({ image }) => {
   const secondaryImage = getImage(image.gatsbyImage);
   return (
     <>
-      <GatsbyImage image={secondaryImage} alt={image.title} className="w-5/6" />
+      <GatsbyImage
+        image={secondaryImage}
+        alt={image.title}
+        className="w-5/6"
+        loading="lazy"
+      />
     </>
   );
 };

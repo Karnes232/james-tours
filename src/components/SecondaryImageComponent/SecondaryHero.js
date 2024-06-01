@@ -24,12 +24,14 @@ const SecondaryHero = ({ backgroundImage, effectImage, imageClassName }) => {
             image={imageEffect}
             alt=""
             className="z-50 !absolute -top-[2px] rotate-180 w-screen"
+            loading="lazy"
           />
 
           <GatsbyImage
             image={imageEffect}
             alt=""
             className="z-50 !absolute -bottom-[1px] w-screen"
+            loading="lazy"
           />
         </BackgroundImage>
       </div>

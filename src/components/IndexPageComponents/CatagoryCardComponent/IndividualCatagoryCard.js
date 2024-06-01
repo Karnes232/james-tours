@@ -23,6 +23,7 @@ const IndividualCatagoryCard = ({ category, link, index }) => {
             image={image}
             alt={category.node.categoryImage.title}
             className="h-64 max-w-[12rem] rounded-[150px] hover:scale-110 ease-in-out duration-300"
+            loading="lazy"
           />
           <div className="px-6 py-4 text-center max-w-[10rem] font-zeyada font-bold text-4xl leading-8">
             {category.node.category}

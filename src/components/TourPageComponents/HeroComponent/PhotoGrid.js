@@ -50,6 +50,7 @@ const PhotoGrid = ({ tourPhotos, effectImage, title }) => {
         image={imageEffect}
         alt=""
         className="z-50 !absolute -bottom-[2px] md:-bottom-[5px] lg:-bottom-[10px] w-screen"
+        loading="lazy"
       />
     </div>
   );

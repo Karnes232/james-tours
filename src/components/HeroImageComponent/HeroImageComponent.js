@@ -49,6 +49,7 @@ const HeroImageComponent = ({ image, effectImage, title, dark, short }) => {
             image={imageEffect}
             alt=""
             className="z-50 !absolute -bottom-[1px] w-screen"
+            loading="lazy"
           />
         </BackgroundImage>
       </div>

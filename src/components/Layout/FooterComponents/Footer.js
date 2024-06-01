@@ -30,6 +30,7 @@ const Footer = ({ layoutData, effectImage }) => {
             image={imageEffect}
             alt=""
             className="z-50 !absolute -top-[1px] rotate-180 w-screen"
+            loading="lazy"
           />
           <div className="mx-5 mt-5 pt-5 md:pt-14 lg:pt-20 xl:pt-36 2xl:pt-40 flex max-w-6xl flex-col h-[30rem] justify-center xl:mx-auto !z-50 relative">
             <SocialMedia layoutData={layoutData} classes={"text-white"} />

@@ -19,6 +19,7 @@ const Step = ({ title, description, image }) => {
           image={icon}
           alt={title}
           className="w-20 md:w-24 h-20 md:h-24"
+          loading="lazy"
         />
         <h1 className="font-lato tracking-wider font-semibold text-lg md:text-xl my-4 lg:h-14">
           {title}

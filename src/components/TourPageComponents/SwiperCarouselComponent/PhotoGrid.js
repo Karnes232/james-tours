@@ -33,12 +33,14 @@ const PhotoGrid = ({ tourPhotos, effectImage }) => {
         image={imageEffect}
         alt=""
         className="z-50 !absolute -top-[2px] md:-top-[5px] lg:-top-[10px] w-screen rotate-180"
+        loading="lazy"
       />
 
       <GatsbyImage
         image={imageEffect}
         alt=""
         className="z-50 !absolute -bottom-[2px] md:-bottom-[5px] lg:-bottom-[10px] w-screen"
+        loading="lazy"
       />
     </div>
   );

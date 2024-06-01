@@ -34,6 +34,7 @@ const SwiperCarousel = ({ photoList, effectImage }) => {
           image={imageEffect}
           alt=""
           className="z-50 !absolute -top-[1px] rotate-180 w-screen"
+          loading="lazy"
         />
         {photoListEdited.map((image, index) => {
           return (
@@ -53,6 +54,7 @@ const SwiperCarousel = ({ photoList, effectImage }) => {
           image={imageEffect}
           alt=""
           className="z-50 !absolute -bottom-[1px] w-screen"
+          loading="lazy"
         />
       </Swiper>
     </>

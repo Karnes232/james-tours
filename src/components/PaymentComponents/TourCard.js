@@ -17,6 +17,7 @@ const TourCard = ({ tour, guestCount, date }) => {
                 image={image}
                 alt={tour?.name}
                 className="rounded-md w-32 h-32 md:w-32 md:h-32 object-cover"
+                loading="lazy"
               />
               <div className="flex flex-col justify-center px-5 w-2/3">
                 <div className="flex justify-center items-center">
