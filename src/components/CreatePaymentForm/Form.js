@@ -13,16 +13,18 @@ const Form = ({ hotelList, tourList }) => {
     hotel: "",
     date: "",
   });
-  const [link, setLink] = useState("")
+  const [link, setLink] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    let newEmail = state.email.replaceAll("@", "%40")
-    let newName = state.name.replaceAll(" ", "+")
-    let newTour = state.tour.replaceAll(" ", "+")
-    let newHotel = state.hotel.replaceAll(" ", "+")
+    let newEmail = state.email.replaceAll("@", "%40");
+    let newName = state.name.replaceAll(" ", "+");
+    let newTour = state.tour.replaceAll(" ", "+");
+    let newHotel = state.hotel.replaceAll(" ", "+");
     console.log(document.location.origin);
-    setLink(`${document.location.origin}/payments/?name=${newName}&email=${newEmail}&guestCount=${state.guestCount}&tour=${newTour}&hotel=${newHotel}&date=${state.date}`)
+    setLink(
+      `${document.location.origin}/payments/?name=${newName}&email=${newEmail}&guestCount=${state.guestCount}&tour=${newTour}&hotel=${newHotel}&date=${state.date}`,
+    );
   };
 
   function handleChange(e) {
@@ -52,7 +54,9 @@ const Form = ({ hotelList, tourList }) => {
         <DatePicker state={state} setState={setState} />
         <button type="submit">Submit</button>
       </form>
-      <div className="whitespace-pre-wrap break-words w-96 max-w-96 mx-auto h-56">{link}</div>
+      <div className="whitespace-pre-wrap break-words w-96 max-w-96 mx-auto h-56">
+        {link}
+      </div>
     </>
   );
 };

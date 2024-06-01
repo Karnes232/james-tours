@@ -26,7 +26,6 @@ const Create = ({ data }) => {
         hotelList={data.allContentfulHotelList.edges[0].node.hotel}
         tourList={data.allContentfulTour.edges}
       />
-      
     </Layout>
   );
 };
